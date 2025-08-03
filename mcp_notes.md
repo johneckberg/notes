@@ -1,5 +1,7 @@
 # MCP
 
+As always, protocols abstract to standardize
+
 Models from different providers generally have different tool calling formats. If you want to build tools with function calling, you'd have to write different implementations based on each model. The function call you write for Claude won't work for chatGPT.
 
 MCP follows a client-server architecture where an MCP host, an AI application like Claude or ChatGPT,  establishes connections to one or more MCP servers. The MCP host accomplishes this by creating one MCP client for each MCP server. Each MCP client maintains a dedicated one-to-one connection with its corresponding MCP server.
