@@ -1,5 +1,5 @@
-# Exporters
-This will cover the basics of instrumenting your code and how to export the data to prometheus.
+# Exporters & Clients
+This will cover the basics of instrumenting your own system, instrumentation on third party systems, and  how to export the data to prometheus.
 
 Before you can monitor your services, you need to add instrumentation to their code via one of the Prometheus client libraries. When Prometheus scrapes your instance's HTTP endpoint, the client library sends the current state of all tracked metrics to the server.
 
