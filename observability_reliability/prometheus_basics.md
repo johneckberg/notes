@@ -1,6 +1,6 @@
 # Prometheus
 
-Prometheus is a system monitoring and alerting system. It was open sourced by SoundCloud in 2012 and is the second project both to join and to graduate within Cloud Native Computing Foundation after Kubernetes.
+Prometheus is a system monitoring and alerting system. It was open sourced by SoundCloud in 2012 and is the second project both to join and to graduate within Cloud Native Computing Foundation after Kubernetes. Prometheus operates on a fundamental pull-based model, where it periodically scrapes metrics data from HTTP endpoints exposed by its targets, which can be applications, services, or infrastructure components. This pull mechanism is a distinguishing feature compared to push-based models prevalent in other monitoring system. This architectural choice means that monitored services are not burdened with determining where to send data; their sole responsibility is to expose it. However, this model can present limitations for ephemeral jobs—short-lived processes that might terminate before a scrape can occur—or for targets located behind firewalls or Network Address Translation (NAT) that are not directly reachable by the Prometheus server. This is where Pushgateway comes in which I'll cover in another note.
 
 The basic components of a Prometheus setup are:
 
