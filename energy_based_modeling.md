@@ -6,7 +6,7 @@ This markdown document outlines the core concepts of energy-based machine learni
 
 The fundamental idea behind **energy-based models (EBMs)** is to shift the problem from a traditional classification or regression task to a scoring problem. Instead of predicting a specific output, we learn an **energy function** that assigns a low energy score to correct or "good" answers and a high energy score to incorrect or "bad" answers. The challenge is that there are infinitely many "bad" answers, which makes this task non-trivial.
 
-A great example of this is **CLIP** by OpenAI. Imagine a classification problem where you want to classify an image. Now, imagine wanting to add more and more classes, until you have an infinite number. This is the kind of problem EBMs are great at. They don't need to categorize every possible output; they just need to learn what "good" looks like versus what "bad" looks like.
+A great example of this is **CLIP** by OpenAI. When training Clip, you run into the issue of having an unkown (potentially infinite) number of classes to categorize images into. When doing this sort of embedding based zero shot classification, the loss is often just the softmax but instead of there being a fixed matrix representing a fixed number of output classes, with energy based embeddings we have a non fixed number of output classes, meaning our coefficient matrix is determined by the other vectors in the batch. This is why EBM is so powerful, you don't need to categorize every possible output; you just need to learn what "good" looks like versus what "bad" looks like.
 
 ---
 
@@ -36,6 +36,5 @@ This is where **contrastive learning** becomes incredibly powerful. Contrastive 
 
 ## Quick Note on Connection to Generalized Linear Models
 
-Energy-based loss functions connect to **Generalized Linear Models (GLMs)** through the Boltzmann distribution. When the temperature $T=1$, the Boltzmann distribution becomes the **softmax function**
+Energy-based loss functions connect to **Generalized Linear Models (GLMs)** through the Boltzmann distribution. When the temperature $T=1$ and the energy function is just the dot product, the Boltzmann distribution becomes the **softmax function**
 $$P(y|x) = \frac{e^{-E(x,y)}}{\sum_{y'} e^{-E(x,y')}}$$
-This is the same functional form used in softmax regression, which is a type of GLM. Specifically, softmax regression is a GLM with a categorical likelihood function and a logit link function. Thus, energy-based models can be seen as a generalization of softmax regression where the "energy" function $E(x,y)$ is learned and can be arbitrarily complex, rather than a simple linear combination of features. Adjusting the temperature parameter $T$ allows for control over the "sharpness" of the probability distribution; a lower temperature increases confidence, while a higher temperature makes the distribution more uniform.
