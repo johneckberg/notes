@@ -8,6 +8,10 @@ My favorite!
 
 Energy based modeling is fundamentally about going back to the most basic problem: we have good answers we want to give a good score and bad answers we want to give a bad score. But there are too many damn bad answers.
 
+A great example of this is **CLIP** by OpenAI. Imagine a classification problem where you want to classify an image. Now, imagine wanting to add more and more classes, until you have an infinite number. This is the kind of problem EBMs are great at. They don't need to categorize every possible output; they just need to learn what "good" looks like versus what "bad" looks like.
+
+---
+
 ## The Boltzmann Distribution and Its Properties
 
 The core of EBM is the **Boltzmann distribution**, which defines a probability distribution over possible outputs based on their energy. The probability of an output $y$ given an input $x$ is defined as:
@@ -39,6 +43,5 @@ Now this process in general is not without its problems, as it requires good neg
 
 ## Quick Note on Connection to Generalized Linear Models
 
-Energy-based loss functions connect to **Generalized Linear Models (GLMs)** through the Boltzmann distribution. When the temperature $T=1$, the Boltzmann distribution becomes the **softmax function**
+Energy-based loss functions connect to **Generalized Linear Models (GLMs)** through the Boltzmann distribution. When the temperature $T=1$ and the energy function is just the dot product, the Boltzmann distribution becomes the **softmax function**
 $$P(y|x) = \frac{e^{-E(x,y)}}{\sum_{y'} e^{-E(x,y')}}$$
-This is the same functional form used in softmax regression, which is a type of GLM. Specifically, softmax regression is a GLM with a categorical likelihood function and a logit link function. Thus, energy-based models can be seen as a generalization of softmax regression where the "energy" function $E(x,y)$ is learned and can be arbitrarily complex, rather than a simple linear combination of features. Adjusting the temperature parameter $T$ allows for control over the "sharpness" of the probability distribution; a lower temperature increases confidence, while a higher temperature makes the distribution more uniform.
