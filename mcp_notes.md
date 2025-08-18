@@ -1,6 +1,6 @@
 # MCP
 
-As always, protocols abstract to standardize
+As always, protocols abstract to standardize. This is just a protocol.
 
 Models from different providers generally have different tool calling formats. If you want to build tools with function calling, you'd have to write different implementations based on each model. The function call you write for Claude won't work for chatGPT.
 

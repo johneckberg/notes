@@ -1,18 +1,16 @@
 # EBM
 
-This markdown document outlines the core concepts of energy-based machine learning models, reflecting a practical, less formal perspective on the topic.
+My favorite!
+
+[For more on this topic click here for lecuns website](https://cs.nyu.edu/~yann/research/ebm/)
 
 ## Energy-Based Models: A High-Level View
 
-The fundamental idea behind **energy-based models (EBMs)** is to shift the problem from a traditional classification or regression task to a scoring problem. Instead of predicting a specific output, we learn an **energy function** that assigns a low energy score to correct or "good" answers and a high energy score to incorrect or "bad" answers. The challenge is that there are infinitely many "bad" answers, which makes this task non-trivial.
-
-A great example of this is **CLIP** by OpenAI. Imagine a classification problem where you want to classify an image. Now, imagine wanting to add more and more classes, until you have an infinite number. This is the kind of problem EBMs are great at. They don't need to categorize every possible output; they just need to learn what "good" looks like versus what "bad" looks like.
-
----
+Energy based modeling is fundamentally about going back to the most basic problem: we have good answers we want to give a good score and bad answers we want to give a bad score. But there are too many damn bad answers.
 
 ## The Boltzmann Distribution and Its Properties
 
-The core of many EBMs is the **Boltzmann distribution**, which defines a probability distribution over possible outputs based on their energy. The probability of an output $y$ given an input $x$ is defined as:
+The core of EBM is the **Boltzmann distribution**, which defines a probability distribution over possible outputs based on their energy. The probability of an output $y$ given an input $x$ is defined as:
 
 $$P(y|x) = \frac{e^{-E(x,y)/T}}{Z(x)}$$
 
@@ -20,19 +18,24 @@ Here, $E(x,y)$ is the energy function, and $T$ is a temperature parameter. The t
 
 $$Z(x) = \sum_{y} e^{-E(x,y)/T}$$
 
-A conjecture that often comes up is that any **discrete distribution** can be represented using the Boltzmann energy distribution with a suitable energy function. While this is a widely cited idea, it's important to note the original caveats from LeCun's 2006 work on the topic.
+$$Z(x) = \int_{ y\in Y} e^{-E(x,y)/T} $$
 
-You can also model any probability mass function (**pmf**) from the **exponential family** using the Boltzmann distribution.
 
----
+A conjecture that often comes up is that any **discrete distribution** can be represented using the Boltzmann energy distribution with a suitable energy function. While this is an often cited idea, it's important to note that LeCun's 2006 tutorial is a much weaker statement of basically "you can mess with the energy function to model some other distributions; if they are PDFs then the integral defining the normalizing constant must converge."
+
+I'm comfortable saying that you can model any probability mass function (**pmf**) from the **exponential family** using the Boltzmann distribution.
 
 ## Contrastive Learning and Intractable Normalization
 
-The normalizing constant $Z(x)$ is often **intractable** to compute, especially in high-dimensional spaces, which makes **Maximum Likelihood Estimation (MLE)** difficult. If we were to treat $Z(x)$ as a parameter to be learned, we could make the likelihood arbitrarily large by simply making $Z(x)$ go to zero, which is a problem for MLE.
+The normalizing constant $Z(x)$ is often **intractable** to compute, especially in high-dimensional spaces, which makes **Maximum Likelihood Estimation (MLE)** difficult. If we were to treat $Z(x)$ as a parameter to be learned, we could make the likelihood arbitrarily large by simply making $Z(x)$ go to zero, which is a problem.
 
-This is where **contrastive learning** becomes incredibly powerful. Contrastive learning doesn't require us to compute the exact value of $Z(x)$. Instead, it focuses on pushing down the energy of "good" examples and pushing up the energy of "bad" or "negative" examples. This allows us to estimate the model's parameters even when the likelihood function is intractable. While this approach is not perfectly rigorous, it works remarkably well in practice.
+This is where **contrastive learning** becomes incredibly powerful. Contrastive learning doesn't require us to compute the exact value of $Z(x)$. Instead we acknowledge that if we estimate it, our loss will still "push down" the energy of "good" examples and "push up" the energy of "bad" or "negative" examples (or vice versa if your doing negative log likelihood). This allows us to estimate the model's parameters even when the likelihood function is intractable. While this approach is not perfectly rigorous, it works!
 
----
+OpenAI's CLIP model provides an excellent example the sort of problems this can solve. During pre-training, CLIP is optimized to align corresponding image-text pairs in a shared vector space. It does this by moving the output vectors of similar pairs closer together while simultaneously pushing the vectors of non-paired images and texts further apart.
+
+Another example I think is important to note is self-supervised text and image embedding models. They create a positive pair by duplicating a datapoint and applying a handful of augmentations to the copy.
+
+Now this process in general is not without its problems, as it requires good negative samples. 
 
 ## Quick Note on Connection to Generalized Linear Models
 
