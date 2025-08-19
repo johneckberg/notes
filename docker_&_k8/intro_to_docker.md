@@ -1,5 +1,9 @@
 # Intro to Docker
 
+## Big idea: 
+
+- VM's while being useful for running legacy applications and very well isolated, are bulky and don't lend themselves to say a microservice architecture. This is where containers come in, **Docker containers all run in the same kernel, vs a VM which runs a kernel per guest.** This makes them very useful tools in the context of say Rosie, where lots of people need to run lots of different code with lots of different dependencies, all on the same compute nodes.
+
 ## Docker V. Virtualization
 
 - Virtualization: A process where software is used to create an abstraction layer.
@@ -24,7 +28,7 @@
 
 - Microservices Microservices Microservices
 - Things we nee to quickly spin up and spin down (like for example a CI/CD job runner)
-- They share the same host kernel, giving them a smaller footprint
+- They share the same host kernel, giving them a smaller footprint. Each container does contain a separate OS in every way beyond the kernel. It has its own user-space applications / libraries and for all intents and purposes it behaves as though it has its own kernel.
 
 ## Dockerhub
 
