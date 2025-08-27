@@ -27,7 +27,7 @@ $$Z(x) = \int_{ y\in Y} e^{-E(x,y)/T} $$
 
 A conjecture that often comes up is that any **discrete distribution** can be represented using the Boltzmann energy distribution with a suitable energy function. While this is an often cited idea, it's important to note that LeCun's 2006 tutorial is a much weaker statement of basically "you can mess with the energy function to model some other distributions; if they are PDFs then the integral defining the normalizing constant must converge."
 
-I'm comfortable saying that you can model any probability mass function (**pmf**) from the **exponential family** using the Boltzmann distribution.
+I'm comfortable saying that you can model any probability mass function (**pmf**) from the **exponential family** using the Boltzmann distribution, although I haven't (and dont have the skills) to prove it.
 
 ## Contrastive Learning and Intractable Normalization
 
@@ -45,3 +45,9 @@ Now this process in general is not without its problems, as it requires good neg
 
 Energy-based loss functions connect to **Generalized Linear Models (GLMs)** through the Boltzmann distribution. When the temperature $T=1$ and the energy function is just the dot product, the Boltzmann distribution becomes the **softmax function**
 $$P(y|x) = \frac{e^{-E(x,y)}}{\sum_{y'} e^{-E(x,y')}}$$
+
+## Two Examples of Energy Based Loss Functions I Think are Cool
+
+### COSent Loss
+
+###
