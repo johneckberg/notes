@@ -27,7 +27,7 @@ $$Z(x) = \int_{ y\in Y} e^{-E(x,y)/T} $$
 
 A conjecture that often comes up is that any **discrete distribution** can be represented using the Boltzmann energy distribution with a suitable energy function. While this is an often cited idea, it's important to note that LeCun's 2006 tutorial is a much weaker statement of basically "you can mess with the energy function to model some other distributions; if they are PDFs then the integral defining the normalizing constant must converge."
 
-I'm comfortable saying that you can model any probability mass function (**pmf**) from the **exponential family** using the Boltzmann distribution, although I haven't (and dont have the skills) to prove it.
+I'm comfortable saying that you can model any probability mass function (**pmf**) from an **exponential family** using the Boltzmann distribution and a smart choice of energy function, although I haven't (and don't have the skills) to prove it. 
 
 ## Contrastive Learning and Intractable Normalization
 
