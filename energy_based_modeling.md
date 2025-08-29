@@ -25,15 +25,15 @@ $$Z(x) = \sum_{y} e^{-E(x,y)/T}$$
 $$Z(x) = \int_{ y\in Y} e^{-E(x,y)/T} $$
 
 
-A conjecture that often comes up is that any **density function** can be represented using the Boltzmann energy distribution with a suitable energy function. While this is a nice idea, it's important to note that LeCun's 2006 tutorial is a much weaker statement of basically "you can mess with the energy function to model some other distributions; if they are PDFs then the integral defining the normalizing constant must converge."
+A conjecture that often comes up is that any **density function** can be represented using the Boltzmann energy distribution with a suitable energy function. While this is a nice idea, it's important to note that LeCun's 2006 tutorial is a much weaker statement of basically "you can mess with the energy function to model a good number of distributions; if they are PDFs then the integral defining the normalizing constant must converge."
 
 [See the 2020 paper, "Your Classifier is Secretly an Energy Based Model and You Should Treat it Like One"](https://arxiv.org/abs/1912.03263)
 
-I'm comfortable saying that you can model any ** mass function** from an **exponential family** using the Boltzmann distribution and a smart choice of energy function, although I haven't (and don't have the skills) to prove it. 
+I'm comfortable saying that you can model any **mass function** from an **exponential family** using the Boltzmann distribution and a smart choice of energy function, although I haven't (and don't have the skills) to prove it. 
 
 ## Contrastive Learning and Intractable Normalization
 
-The normalizing constant $Z(x)$ is often **intractable** to compute, especially in high-dimensional spaces, which makes **Maximum Likelihood Estimation (MLE)** difficult. If we were to treat $Z(x)$ as a parameter to be learned, we could make the likelihood arbitrarily large by simply making $Z(x)$ go to zero, which is a problem.
+The normalizing constant $Z(x)$ is often **intractable**, especially in high-dimensional spaces, which makes **Maximum Likelihood Estimation (MLE)** difficult. If we were to treat $Z(x)$ as a parameter to be learned, we could make the likelihood arbitrarily large by simply making $Z(x)$ go to zero, which is a problem.
 
 This is where **contrastive learning** comes into play. Contrastive learning doesn't require us to compute the exact value of $Z(x)$. Instead we acknowledge that if we estimate it, our loss will still "push down" the energy of "good" examples and "push up" the energy of "bad" or "negative" examples (or vice versa if your doing negative log likelihood). This allows us to estimate the model's parameters even when the likelihood function is intractable. While this approach is not perfectly rigorous, it works!
 
