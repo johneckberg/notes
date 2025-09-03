@@ -1,14 +1,13 @@
 #TODO
 
 - Read How to read papers
-- Networking HW
-- Networking Lab
+- Networking HW Due Sept 8th midnight
+- Networking Lab Due sept 9th midnight 
+- SWE lab #1 Due sept 9th midnight
 - Clarify with Dr. Hao on how we should submit labs? just push?
   - Not a place to submit a link, just comments?
-- Schedule meeting with Dr. Schilling about SRE contacts
+- Schedule meeting with Dr. Schilling about SRE contacts 
 - Web app development Lab #1
-- Read Through Syllabus for BUS 2411
-- DONE Begin introduction for BUS 2411 
 
 ## List of Textbooks
 
@@ -33,3 +32,16 @@
 ### Web Dev
 
 - No Textbook 
+
+
+- TODO today:
+ - start on cloud lab #1 https://faculty-web.msoe.edu/hasker/swe2410/labs/1/
+ - Configure Intellij & WebStorm IDEs (Done I think...)
+ - Finish up your section of the web dev lab for thursday 
+ - do readings for Bus 2411
+ - download enterprise architect 
+
+- TODO Thursday
+  - Office hours with Dr. Hao
+  - networking assignment #1 during class break 
+  - Try and Finish up 
