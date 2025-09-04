@@ -5,3 +5,8 @@
 - there will be errors in the code 
 - do NOT apply design patterns while working this lab
 https://faculty-web.msoe.edu/hasker/swe2410/labs/1/
+
+- Classes to him are:
+  - Things (classes) with nouns (attributes) and verbs (class methods)
+- keeps talking about avoiding if/else statements completely. I can only find stuff on avoiding nested if/else; keep looking?
+- Domain Driven Design 

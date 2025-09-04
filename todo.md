@@ -1,4 +1,4 @@
-#TODO
+# TODO
 
 - Read How to read papers
 - Networking HW Due Sept 8th midnight
@@ -37,9 +37,8 @@
 - TODO today:
  - start on cloud lab #1 https://faculty-web.msoe.edu/hasker/swe2410/labs/1/
  - Configure Intellij & WebStorm IDEs (Done I think...)
- - Finish up your section of the web dev lab for thursday 
  - do readings for Bus 2411
- - download enterprise architect 
+
 
 - TODO Thursday
   - Office hours with Dr. Hao

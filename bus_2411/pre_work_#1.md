@@ -9,12 +9,15 @@
 
 Chapter 2 - This chapter explored self-disclosure and trust and why they are important. Strategies and concerns are noted.    
 
+- Covered The Johari Window pg29
+- Self-disclosure + Trust = Stronger relationships
+
     Focus on:
         What is self-disclosure
-            Why is self-disclosure important?
+            Why is self-disclosure important?: Self-disclosure helps us to feel validated, understood, and accepted. It is viewed as a precursor for empathy and compassion, important concepts for navigating in today’s world
             Concerns about self-disclosure
             The role of self-disclosure in increasing self-awareness
-        What is trust
+        What is trust: Trust is one’s faith or belief in the integrity or reliability of another person or thing. Trust means confidence. 
             Concerns about building trust
             Strategies for building trust
             A note of caution about trust
@@ -23,11 +26,13 @@ Chapter 2 - This chapter explored self-disclosure and trust and why they are imp
 
 Chapter 2 -  Linked to how we self disclose and build trust, this chapter examines the shades of truth in your responses to questions and self disclosure.  
 
+- TLDR: everyone lies and different types of lies have different outcomes or utility 
+
     Focus on:
-        Gray lies
-        Colorless lies
-        Red lies
-        Blue lies 
+        Gray lies : like white lies but worse
+        Colorless lies : The things that people keep from themselves
+        Red lies : lies that potentially confer survival and reproductive benefits
+        Blue lies : lies we tell because of the way we want people to view us; "these blue lies are ploys to produce favorable regard by others." impression management
 
 
 ## Other Pre-Work (Videos)
