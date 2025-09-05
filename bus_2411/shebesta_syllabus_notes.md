@@ -18,3 +18,7 @@
   - Does she mean that I have to make requests for extensions or missing class through Angela?
 - "Feedback on assignments will be returned in several ways: electronically via Canvas grade center, via MSTeams, and verbally in classroom, team meetings, and office hours"
   - Will there be situations where you give us feedback on an assignment/project and there wont be a digital record of it for future review?, i.e. verbal in class feedback for an assignment thats not then recorded on canvas on a rubric
+
+  - we need to build our own study guides!!
+    - re-iterated topics or world will be on tests
+  - One midterm one final

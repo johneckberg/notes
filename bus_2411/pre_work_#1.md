@@ -1,5 +1,7 @@
 # Pre-Work #1
 
+Big Ideas: Learner Vs Judger Questions
+
 ## Readings:
 
 - Interpersonal skills in organizations: Chapter 2: Self-disclosure and trust
@@ -38,7 +40,7 @@ Chapter 2 -  Linked to how we self disclose and build trust, this chapter examin
 ## Other Pre-Work (Videos)
 
 - Your brain Will Not Be the Same 
-  - neuroplasiticity; your brain changes as you learn
+  - Neuroplasiticity; your brain changes as you learn
   - Chemical Changes (short term), structural changes (long term), functional Changes
 - The Power of Questions
   - HBR article for subscribers only
@@ -48,7 +50,7 @@ Chapter 2 -  Linked to how we self disclose and build trust, this chapter examin
   - Some questions can be seen as judging questions, while others are learning questions. Judging questions are based on showing your knowledge
   - "Judger vs Learner attributes"
 - Bloom's Taxonomy
-  - a framework for classifying educational learning goals into different levels of complexity and specificity. 
+  - A framework for classifying educational learning goals into different levels of complexity and specificity. 
   - Evaluation engenders “judgments about the value of material and methods for given purposes.”
   - Synthesis involves the “putting together of elements and parts so as to form a whole.”
   - Analysis represents the “breakdown of a communication into its constituent elements or parts such that the relative hierarchy of ideas is made clear and/or the relations between ideas expressed are made explicit.”
