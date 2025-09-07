@@ -1,11 +1,8 @@
 # TODO
 
-- Read How to read papers
 - Networking HW Due Sept 8th midnight
 - Networking Lab Due sept 9th midnight 
 - SWE lab #1 Due sept 9th midnight
-- Schedule meeting with Dr. Schilling about SRE contacts 
-- Web app development Lab #1
 - Double check you didn't fuck anything up with the javafx versioning change
   - that will need to be fixed in both the dependencies tab in intellij and also the VM options in the configuration template
 
@@ -32,18 +29,3 @@
 ### Web Dev
 
 - No Textbook 
-
-
-- TODO today:
- - start on cloud lab #1 https://faculty-web.msoe.edu/hasker/swe2410/labs/1/
- - Configure Intellij & WebStorm IDEs (Done I think...)
- - do readings for Bus 2411
-
-
-- TODO Thursday
-  - Office hours with Dr. Hao
-    - Clarify with Dr. Hao on how we should submit labs? just push?
-      - Not a place to submit a link, just comments?
-  - networking assignment #1 during class break 
-  - Try and Finish up 2410 lab by thursday night for friday demo
-    - Clarify if our submission also includes a link to the repo or will you just clone it 
