@@ -32,3 +32,7 @@ description of a research prototype?
 - The goal is to able to pinpoint implicit assumptions, missing citations, etc.
 
 Trying to fit this into the context of evidence based ML papers, what exactly should we avoid on the second pass? "non-essential" data like ablation studies or robustness experiments, the code if we can find it? In general things that fall behind the references?
+
+
+are the figures necessary? should they be color? is the data dependent 
+Could we measure human error rate in time series anomaly detection?
