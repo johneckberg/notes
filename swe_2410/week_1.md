@@ -1,6 +1,10 @@
 # SWE 2410 with Dr. Thomas
 
-- hates if statements because they introduce errors; proposes to use "null objects". replace if statements with classes
+- hates if statements because they introduce errors; no-if-statement campaign”
+  • Null Object Pattern
+  • Adapter Pattern (Chap. 7)
+  • Strategy Patterns (Chap. 9)
+  • Singleton Patterns
 
 
 - I'm frustrated with the way he asks a question and then doesn't provide feedback on why specific answers are wrong.

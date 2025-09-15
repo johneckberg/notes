@@ -30,7 +30,7 @@ DDD is much more important to breadth-first software than depth-first software, 
 - **An Object is something with:**
   - **Responsibility, Identity, Behavior, and State (RIBS)**
 - We need to understand the user stories and the requirements that arise from them. The requirements should be self evident from the user stories
-- User stories represent a timeline of what the user wants do to/has to do and the scenarios that might arise from those actions. User Stories like, "I want to do x but can't because y"
+- User stories represent a timeline of what the user wants do to/has to do and the scenarios that might arise from those actions. User Stories like, "I'm an x and i want to do y"
 - From the DDD link above "Is a technique to describe specific functions the user must perform at each stage of a journey."
 **IS THIS TOO ABSTRACT OF A DEFINITION? IS THIS A GOOD DEFINITION? YES OR NO? IF IT IS, WHAT NEEDS TO CHANGE?**
 **I dont think this is the same definition of user story from Agile**
