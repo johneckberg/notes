@@ -34,7 +34,7 @@ A dashed line going from a class to an interface, terminating with an open arrow
 - Aggregation: Some associations imply a "whole-part" relationship.
 An unfilled (open) diamond on the side that is the "whole" is used to denote this. For Example, students belong to/make up a section object.
 - Composition: Some "whole-part" relationships represent an even stronger link.
-A filled (closed) diamond on the side of the "whole" is used to denote this. For example, sections belong to/make up a course object.
+A filled (closed) diamond on the side of the "whole" is used to denote this. For example, sections belong to/make up a course object. (Dr. Thomas describes this a "needs a x relationship")
 - Dependency: one class may make use of another class
 A dotted line is used to denote this, with an arrow that points to the class that is depended upon
 - Inheritance: The relationship between a subclass and a superclass

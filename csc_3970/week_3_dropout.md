@@ -2,6 +2,7 @@
 
 Read the original dropout paper and the variational dropout paper
 
+just review dropout not the other paper associated with dropout 
 
 ## About Reading the Papers
 
