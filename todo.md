@@ -1,12 +1,19 @@
 # TODO
 
-- pre-work for Wednesday bus 2411
-- Networking Lab Due sept 9th midnight 
-- SWE lab #1 Due sept 10th midnight
-- Double check you didn't fuck anything up with the javafx versioning change
-  - that will need to be fixed in both the dependencies tab in intellij and also the VM options in the configuration template
-- reach out to Ken and Dr. Nowling, seems like Schilling might be a bust (wrong type of reliability)
-- email Dr. Bukowvy about AnglE corrections; see apple notes. They did cite the blog post, its rather that they 1. either called it by the wrong name or didnt call it by name, 2. changed the ablation study to not include cosent without the new distance metric, 3. benchmarked different models on different data & passed it off as a rigorous comparison.
+- BUS 2411 Journal entries 
+- Mid-term Schedule
+  - BUS 2411 Wednesday
+  - SWE 2410 week after Wednesday
+
+- formulate question about forecasting estimated RTT time for Dr. Z
+  - does he know of any resources for this?
+  - do we have an idea of what distribution we can model the errors with?
+- Badger-Meter Application
+- Kohl's application
+- securian application
+-excel energy application
+- Clairos Application
+
 
 ## List of Textbooks
 

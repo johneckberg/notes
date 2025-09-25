@@ -4,6 +4,8 @@ Read the original dropout paper and the variational dropout paper
 
 just review dropout not the other paper associated with dropout 
 
+## Understand V dropout better and fast dropout via uniform bernoulli -> binomial -> normal connection
+
 ## About Reading the Papers
 
     From the title, abstract, and figures alone, what can you infer about each paper’s contribution?

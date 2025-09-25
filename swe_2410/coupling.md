@@ -21,3 +21,11 @@ Coupling is usually contrasted with cohesion. Low coupling often correlates with
 
 - content coupling: using data, control encapsulated within the boundary of another module. bypassing protected (like for example calling __func() in python) makes stuff hard to fix in the future, but can provide short term speed benefits. THE WORST FORM OF COUPLING!
 - common coupling: leaving data unrestricted. Theres no real encapsulation here. 
+
+## examples:
+
+- bad cohesion is a do it all class
+- good cohesion is a baseball team; everyone has one job to do
+
+- good example of coupling is data 
+- a bad example of coupling is content coupling

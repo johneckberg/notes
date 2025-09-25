@@ -1,4 +1,4 @@
-# midterm
+# midterm: all multiple choice
 
 - no study guide, she will give us two notecards to write on for the test. 
 - use the overview and readings to determine specific topics to cover for the test
@@ -28,6 +28,11 @@ Topic List:
         - Ethical Reasoning & dilemmas 
             - utilitarian
             - kantian  
+    - Emotional Intelligence
+        - MBTI; specifically tendencies 
+        - Emotional Regulation 
+
+What topics are repeated? 
 
 - headers will be each topic covered; probably 1-2 a week 
     - then review chapters 
