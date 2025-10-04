@@ -22,6 +22,7 @@
 
 
 ## Cohesion: worst type of coupling is still a do it class becuase it does too much
+Week #4 friday lecture has all of them down in a row!!
     you need to cover all examples of cohesion better
     Understand the difference between temporal procedural and sequential coupling
     specifically procedural vs temporal
@@ -36,11 +37,12 @@
     - Functional coupling:
 
 ## review design patterns
-- null object; exists in a place where theres an option to do something but the specific class cannot do it; like a sedan with a plow. it would have a null plow. 
+- null object; exists in a place where theres an option to do something but the specific class cannot do it; like a sedan with a plow. it would have a null plow. Maybe a blank button panel on a car would fit that as well?
 - Singleton; only one of something can exist, and it must be Unique instance! 
 - im confused on how this is different than a unique attribute? like couldn't you say an engine "has-a" serial number? (engine is wrong) Two cars might share the same type of engine, all engines have a unique serial number. employee id is also a good example of the singleton. Its just that the thing is has needs to be unique 
 - strategy pattern; A list of specific types of algorithm/ behaviors that are interchangeable.
 - get more comfortable with the difference between adapter vs decorator 
      decorator is dressing someone up as somebody else; adaptor is dressing someone up as a horse. Adapter changes the interface of an object to adapt it to another interface. A decorator has the same interface of the thing it decorates, it just adds new functionality. The adapter adapts a class to work with a new interface
+- Observer pattern
 
 ## UML diagramming and sequence diagramming, ensure you know how the relationships and how they are represented

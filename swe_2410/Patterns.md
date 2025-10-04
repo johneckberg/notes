@@ -15,4 +15,4 @@
 
 
 - decorator pattern: Not an is a relationship. dont use the strategy, decorate the strategy 
-- observer pattern
+- observer pattern?
