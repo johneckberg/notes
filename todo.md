@@ -4,12 +4,10 @@
 - Mid-term Schedule
   - BUS 2411 Wednesday
   - SWE 2410 week after Wednesday
+    - note sheet
 
-- formulate question about forecasting estimated RTT time for Dr. Z
-  - does he know of any resources for this?
-  - do we have an idea of what distribution we can model the errors with?
-- Badger-Meter Application
-- Kohl's application
+- email Dr. Lembke about SRE
+- Comcast Application
 - securian application
 -excel energy application
 - Clairos Application
