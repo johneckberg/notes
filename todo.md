@@ -1,16 +1,11 @@
 # TODO
 
-- BUS 2411 Journal entries 
-- Mid-term Schedule
-  - BUS 2411 Wednesday
-  - SWE 2410 week after Wednesday
-    - note sheet
-
-- email Dr. Lembke about SRE
-- Comcast Application
-- securian application
--excel energy application
-- Clairos Application
+- Week 6 Quiz
+- begin mid term prep
+- email Dr. Lembke about SRE?
+- Decoupled contrastive loss pitch for ST? write up an issue
+  - "Im always interested in the transfer of knowledge between VC & NLP embedding losses.  A lot of recent work has relied on data augmentation which is less possible with sentences, but some losses have to seemed to attract great attention in one domain and very little in the other. 
+  - Compare decoupled to some of the newer contrastive losses im not familiar with
 
 
 ## List of Textbooks
