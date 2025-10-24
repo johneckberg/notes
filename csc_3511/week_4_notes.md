@@ -1,5 +1,9 @@
 # Week 4 Notes: TCP protocol
 
+## Things that tripped me up on this weeks quiz
+
+* This is from quiz #3 but i think it fits better here in the tcp section: * 2.7-4 How many sockets? Suppose a Web server has five ongoing connections that use TCP receiver port 80, and assume there are no other TCP connections (open or being opened or closed) at that server.  How many TCP sockets are in use at this server?: 6; one listening socket
+
 ## Reliable Data Transmission
 
 TCP (Transmission Control Protocol) implements reliability mechanisms on top of IP's unreliable (best-effort) service model to ensure data is delivered **exactly once** and **in order**.
@@ -11,3 +15,6 @@ TCP (Transmission Control Protocol) implements reliability mechanisms on top of 
 | **Packets can be delayed** | **Dynamic RTT Estimation and Sequence Numbers** | **Delays** are mostly managed by the retransmission mechanism. TCP dynamically calculates the Round Trip Time (**RTT**) to set an appropriate timer value, minimizing unnecessary retransmissions due to minor delays. If a segment is delayed so long it causes a premature timeout and a duplicate is sent, the receiver uses the **sequence number** (see below) to discard the late-arriving original segment. |
 | **Packets can be duplicated** | **Sequence Numbers** | TCP uses **byte-level sequence numbers** to identify the data payload in each segment. The receiver keeps track of the highest sequence number received so far. If a duplicate segment arrives (e.g., due to a delayed segment arriving after a retransmission), the receiver detects the redundant sequence number and **discards** the duplicate data, ensuring **exactly-once delivery**. |
 | **Packets can be re-ordered** | **Sequence Numbers and Receiver Buffering** | The **sequence numbers** allow the receiver to determine the correct order of the data segments, even if they arrive out of sequence. The receiver uses a **buffer** to hold any segments that arrive out-of-order until the missing preceding segments are received. Data is only passed up to the application layer **in correct sequence**. |
+
+
+## TCP congestion control
