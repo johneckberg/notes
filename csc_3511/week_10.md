@@ -47,9 +47,21 @@
 
 ## Block Cypher
 
+* we should know that DES is a block cypher and that its unsecure
+
 * A family of cryptographic algorithms consisting for fixed size blocks of bits
 
 * Note on how DES is bad
 
 * Note on S-box
+
+* Note on Feistel network. Encrypts half of the plaintext each round 
+
+* AES was introduced by NIST as a more secure block cypher in 2001. As of right now, AES 128 is secure
+  * AES uses a substitution-permutation network 
+
+## Lecture 2: Public Key Cryptography, RSA
+
+
+
 

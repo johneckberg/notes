@@ -31,6 +31,8 @@ A conjecture that often comes up is that any **density function** can be represe
 
 I'm comfortable saying that you can model any **mass function** from an **exponential family** using the Boltzmann distribution and a smart choice of energy function, although I haven't (and don't have the skills) to prove it. 
 
+A statement I'm sure of (and this is the main note from Lecuns actual 2006 write-up is that you can turn any model outputs into a density function using the Boltzmann distribution (which is the classic softmax/ log linear multinomial regression)), then use the likelihood function of that distribution as our loss.
+
 ## Contrastive Learning and Intractable Normalization
 
 The normalizing constant $Z(x)$ is often **intractable**, especially in high-dimensional spaces, which makes **Maximum Likelihood Estimation (MLE)** difficult. If we were to treat $Z(x)$ as a parameter to be learned, we could make the likelihood arbitrarily large by simply making $Z(x)$ go to zero, which is a problem.
