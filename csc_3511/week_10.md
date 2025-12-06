@@ -1,5 +1,7 @@
 # Week 10 notes: Encryption week
 
+## AES is a block cipher, ChaCha20 is a stream cipher
+
 ## Lecture 1: One-Time Pads, Stream Cipher, and Block Cipher
 
 * Efficient attack scheme means faster than brute force

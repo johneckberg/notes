@@ -49,3 +49,15 @@
 * Replay Attacks
 * Forward Secrecy
 * Provides End-to-End Security
+
+## Week 12, Lecture 2: DNS security
+
+### DNS over TLS
+
+* Bare metal DNS has no methods for verifying the correctness of the response. We would like to add authenticity and integrity to prevent things like the kaminsky DNS attack.
+
+* TLS, easy solution
+
+### DNSSEC
+
+As always, we have a trade-off between security and speed; we assume a lot (all?) of the higher level dns servers we delegate to are not compromised
