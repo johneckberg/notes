@@ -8,6 +8,10 @@
 
 * Practical issue: from a security perspective, we would prefer to not re-use keys, but from a practical perspective, key generation is expensive and we would like to re-use keys because of this...
 
+* You would want to convert a Block Cipher (like AES) into a Stream Cipher to achieve the benefits of stream encryption, primarily when encrypting arbitrarily long data streams or when speed and low latency are critical, even though block ciphers are not inherently designed for this.
+  * But why not just use a stream cipher in the first place?
+  * smaller library less moving parts to deal with, some companies support only AES because
+
 * Every encryption algorithm has three components:
   1. Key Generation
   2. Encryption
@@ -49,7 +53,7 @@
 
 ## Block Cypher
 
-* we should know that DES is a block cypher and that its unsecure
+* **we should know that DES is a block cypher and that its unsecure**
 
 * A family of cryptographic algorithms consisting for fixed size blocks of bits
 

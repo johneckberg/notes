@@ -37,6 +37,16 @@
 * DNS query results include Additional Records section:
 * Provide records for anticipated next resolution step
 
+## Kaminsky Attack
+
+The Kaminsky attack's key insight is that Bob can exploit the Authority section and Additional section to poison the cache.
+
+In a spoofed response from the .com server, Bob can:
+
+1. Put an NS record in the Authority section claiming that example.com's nameserver is at a domain he controls;
+
+2. Put a corresponding A record in the Additional section, mapping that nameserver to his malicious IP.
+
 
 ## Introduction to Cryptography
 
