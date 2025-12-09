@@ -37,9 +37,23 @@
 * DNS query results include Additional Records section:
 * Provide records for anticipated next resolution step
 
-## Kaminsky Attack
+## DNS poisoning
 
-The Kaminsky attack's key insight is that Bob can exploit the Authority section and Additional section to poison the cache.
+* Returning false information into the DNS cache
+* The victim will cache the malicious records, “poisoning” it
+* Later, DNS queries return an incorrect response, and users are directed to the wrong websites
+
+* **Example:** Supply a malicious record mapping the attacker’s IP address to a legitimate domain
+Now when the victim visits google.com, they’ll actually be sending packets to the attacker (6.6.6.6), who can launch the MITM attack!
+
+
+### Kaminsky Attack
+
+* Dan Kaminsky, security researcher, noticed that DNS clients would cache additional glue records as if they were authoritative answers, even though they aren’t
+* **Previous attacks: poison the final answer, the type A record with the IP address, Kaminsky Attack: goes up one level and hijacks the authority records (NS record) instead**
+
+
+Mechanism: The attack requires the attacker to flood the recursive resolver with forged responses while repeatedly querying for a non-existent, random subdomain (e.g., fake1.google.com) to force a new authoritative query, increasing the chance of guessing the correct Query ID for a given domain .
 
 In a spoofed response from the .com server, Bob can:
 
@@ -49,6 +63,8 @@ In a spoofed response from the .com server, Bob can:
 
 
 ## Introduction to Cryptography
+
+![alt text](cryptoroadmapimage.png)
 
 ### What is cryptography
 
@@ -73,11 +89,15 @@ to have written it
 
 ### Threat Models
 
-See week 9 Day 2 slides for a good table 
+Kerckhoff's Principle: This is a fundamental security principle stating that a cryptosystem must be secure even if the attacker knows all internal details of the system; the key should be the only thing that must be kept secret.
+
+Key Models: The two main models are Symmetric key (Alice and Bob share the same secret key) and Asymmetric key (a user has a private key and a public key)
 
 ###  IND-CPA (indistinguishability under chosen plaintext attack)
 
 A security property for an encryption scheme where an attacker cannot distinguish between the ciphertexts of two different plaintexts, even if the attacker can choose plaintexts to be encrypted
+
+An encryption scheme is IND-CPA secure if an attacker (Eve) can win the guessing game with a probability of only ≤1/2+ϵ (where ϵ is a negligible advantage). This means the ciphertext has leaked no information beyond what the attacker already knew
 
 ### Caesar Cipher
 

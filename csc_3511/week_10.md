@@ -37,6 +37,7 @@
 * So what happens if we re-use a key? The attacker can take the XOR between both messages
 
 * Part of the issue is that the key must be the same length as the data, so 1 GB key for 1 GB data
+ * is this true for all symmetric keys?
 
 ### Stream Cypher
 
@@ -47,27 +48,74 @@
 
 * ChaCha20
   * He made a special note about making sure we understand the initialization vector
+  * The Initialization Vector (IV) is a public, non-repeating value for a given key k.
+  * The pair (k,IV) must never be used more than once.
+  * You can re-use the key k if you use a new IV
+  * If you re-use k with the same IV, you leak information about the plaintext, as the same plaintext would result in the same ciphertext
 
 * So how to we generate actually random stuff? We collect sources of entropy from the real world (hopefully our computer hardware, maybe using the unpredictable behavior of hardware interrupts)
   * There are NIST approved RNGs
 
 ## Block Cypher
 
-* **we should know that DES is a block cypher and that its unsecure**
-
 * A family of cryptographic algorithms consisting for fixed size blocks of bits
 
-* Note on how DES is bad
+* we should know that DES is a block cypher and that its unsecure
+
+    DES is insecure and should not be used.
+
+* The primary reason for its insecurity is its small key size of 56 bits, making it vulnerable to exhaustive key search (brute-force) attacks.
+
+* A family of cryptographic algorithms consisting for fixed size blocks of bits (e.g., 64 bits for DES, 128 bits for AES).
+
+* Note on how DES is bad (See point above on 56-bit key).
 
 * Note on S-box
 
-* Note on Feistel network. Encrypts half of the plaintext each round 
+    * The S-box (Substitution-box) is the crucial element for DES's security and is considered the heart of DES.
+
+    * It is a non-linear substitution operation used to provide confusion.
+
+* Note on Feistel network. Encrypts half of the plaintext each round
+
+  * In a Feistel network (like DES), the plaintext is split into two halves, Li−1​ and Ri−1​.
+
+  * In each round, the right half (Ri−1​) is fed into a function f, and the output is XORed with the left half (Li−1​).
+
+  * The new halves are: Li​=Ri−1​ and Ri​=Li−1​⊕f(ki​,Ri−1​).
+
+AES was introduced by NIST as a more secure block cypher in 2001. As of right now, AES 128 is secure
+
+    AES-128 uses 10 rounds.
+
+AES-192 uses 12 rounds, and AES-256 uses 14 rounds.
+
+AES uses a substitution-permutation network (SPN).
 
 * AES was introduced by NIST as a more secure block cypher in 2001. As of right now, AES 128 is secure
   * AES uses a substitution-permutation network 
 
 ## Lecture 2: Public Key Cryptography, RSA
 
+![alt text](RSAimages.png)
+
+* Unlike symmetric-key (e.g., Caesar Cipher, AES), which uses one shared key, public-key cryptography uses a pair of mathematically linked keys for a user:
+
+    * Public Key (PK): Used to encrypt messages to the user or to verify a digital signature from the user. It is shared widely.
+
+    * Private Key (SK): Used to decrypt messages sent to the user or to create a digital signature by the user. It must be kept secret.
+
+* Two big benifits/uses:
+
+* Confidentiality: A sender encrypts a message with the recipient's Public Key. Only the recipient's matching Private Key can decrypt it.
+
+* Authentication/Integrity (Digital Signatures): The sender encrypts a hash of the message with their own Private Key (the "signature"). The recipient uses the sender's Public Key to verify it.
+
+* **Practical Use (Hybrid Cryptosystem): RSA is computationally slow compared to symmetric algorithms (like AES). In practice, it is primarily used for:**
+
+    * Securely exchanging a shared session key (a small symmetric key).
+
+    * The shared session key is then used to encrypt the bulk of the data using the faster symmetric algorithm.
 
 
 

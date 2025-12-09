@@ -61,3 +61,16 @@
 ### DNSSEC
 
 As always, we have a trade-off between security and speed; we assume a lot (all?) of the higher level dns servers we delegate to are not compromised
+
+#### Securing DNS Lookups: What do we Really Need
+
+* We want integrity on the response
+* Recall: Integrity means an attacker can’t tamper with the results
+* Prevent cache poisoning attacks through cryptographic verification
+
+* We want authenticity on the response
+* recall: Authenticity means verifying the response came from the legitimate DNS server
+* **Mitigate Kaminsky attacks and MITM attacks**
+We do not need confidentiality on the response
+* DNS results are public: The attacker can always look up the results themselves!
+* Even if the attacker couldn’t see the DNS response, they can see which IP you connect to later. DNS queries leak information about user activities to network observers
