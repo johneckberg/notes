@@ -11,6 +11,8 @@ The primary reasons for using a cryptographic hash function H(M) are: 1. Asymmet
 
 Security Property: Digital signature schemes are secured against EU-CPA (Existentially Unforgeable under Chosen Plaintext Attack).
 
+![alt text](Private_key_signing.svg.png)
+
 #### **Scenario: Credit Card Authentication**
 
 * **Key components**
