@@ -97,6 +97,8 @@ AES uses a substitution-permutation network (SPN).
 
 ## Lecture 2: Public Key Cryptography, RSA
 
+**See HW 10 for example calculation**
+
 ![alt text](RSAimages.png)
 
 * Unlike symmetric-key (e.g., Caesar Cipher, AES), which uses one shared key, public-key cryptography uses a pair of mathematically linked keys for a user:
@@ -116,6 +118,3 @@ AES uses a substitution-permutation network (SPN).
     * Securely exchanging a shared session key (a small symmetric key).
 
     * The shared session key is then used to encrypt the bulk of the data using the faster symmetric algorithm.
-
-
-

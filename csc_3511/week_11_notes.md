@@ -4,12 +4,19 @@
 
 ### Digital Signatures
 
-Big idea: Digital signatures are an asymmetric way of providing integrity and authenticity to data
+Big idea: Digital signatures are an asymmetric way of providing **integrity and authenticity** to data
+
+A digital signature scheme consists of three algorithms:
+
+  * A key generation algorithm that selects a private key at random from a set of possible private keys. The algorithm outputs the private key and a corresponding public key.
+  * A signing algorithm that, given a message and a private key, produces a signature.
+  * A signature verifying algorithm that, given the message, public key and signature, either accepts or rejects the message's claim to authenticity.
 
 The primary reasons for using a cryptographic hash function H(M) are: 1. Asymmetric operations (signing/verification) are slow, so you sign a short hash instead of a long message. 2. It allows signing arbitrarily long messages.
-	
 
 Security Property: Digital signature schemes are secured against EU-CPA (Existentially Unforgeable under Chosen Plaintext Attack).
+
+**Digital signatures don't prevent the replay attack**
 
 ![alt text](Private_key_signing.svg.png)
 
@@ -124,7 +131,7 @@ key to encrypt the message
 * note on how macs probably cant provide authenticity; researchers think it cant, but maybe dont know for sure
   * he said look into AEAD
 
-* he core difference between a hash and a MAC is that a MAC tag T=MAC(K,M) requires a secret key K. This ensures only someone with the key can generate a valid tag, providing authenticity (and integrity)
+* The core difference between a hash and a MAC is that a MAC tag T=MAC(K,M) requires a secret key K. This ensures only someone with the key can generate a valid tag, providing authenticity (and integrity)
 
 * Method 1: Store H(M) for message M, where H is a cryptographic has function
 
@@ -134,19 +141,29 @@ key to encrypt the message
 
 Method 2 (HMAC): The calculation of the Message Authentication Code (MAC) requires the secret key K (i.e., MAC(K,M)). Only the legitimate sender and receiver share this key. If Mallory modifies the message M to M′, she cannot calculate the correct HMAC(K,M′) without knowing K. Therefore, the receiver can verify that the message originated from someone who possesses the secret key, providing message authenticity.
 
-### Diffie-Hellman Key Exchange
-
-* funny note; apparently the paper was initially rejected from a journal for being too radical
-* Relies on the discrete log problem 
-
-* vulnerable to man in the middle attack:
-  * Why?:
-  * can be solved via digital signatures
-  * can also be solved if the parties have a pre-shared secret key. with this, we can authenticate the d-f params via MAC
-    * so why if they already have a shared private key, why do we need d-f?
-      * d-f provides forward secrecy
+### Diffie-Hellman Key Exchange: method of securely generating a symmetric cryptographic key over a public channel
 
 * Formula:
 ![alt text](DiffieHellman.png)
 
-* What values can be observed during transit? An adversary (Eve/Mallory) observes the public parameters: the large prime p, the generator g, Alice's public value A=ga(modp), and Bob's public value B=gb(modp). The shared secret K=gab(modp) cannot be computed from these public values (this is the computational difficulty of the Diffie-Hellman problem).
+* we agree on the public parameters: the large prime p, the generator g
+  * then each party sends their message (equal to g^secret key mod p)
+  * from this, the other party can calculate the secret message (equal to receivedmessage^secretkey mod p)
+
+* funny note; apparently the paper was initially rejected from a journal for being too radical
+* Relies on the discrete log problem for computational hardness 
+
+
+* vulnerable to man in the middle attack:
+  * "The Diffie-Hellman key exchange is vulnerable to a man-in-the-middle attack. In this attack, an opponent Carol intercepts Alice's public value and sends her own public value to Bob. When Bob transmits his public value, Carol substitutes it with her own and sends it to Alice. Carol and Alice thus agree on one shared key and Carol and Bob agree on another shared key. After this exchange, Carol simply decrypts any messages sent out by Alice or Bob, and then reads and possibly modifies them before re-encrypting with the appropriate key and transmitting them to the other party. This vulnerability is present because Diffie-Hellman key exchange does not authenticate the participants. Possible solutions include the use of digital signatures and other protocol variants."
+
+This vulnerability can be solved via digital signatures
+
+* can also be solved if the parties have a pre-shared secret key. with this, we can authenticate the d-f params via MAC
+  * so why if they already have a shared private key, why do we need d-f?
+    * d-f provides **forward secrecy**
+
+* What values can be observed during transit? 
+ * An adversary (Eve/Mallory) observes the public parameters: the large prime p, the generator g, Alice's public value A=ga(modp), and Bob's public value B=gb(modp). The shared secret K=gab(modp) cannot be computed from these public values (this is the computational difficulty of the Diffie-Hellman problem).
+
+
