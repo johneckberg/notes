@@ -2,7 +2,7 @@
 
 ## Chain of responsibility
  
- * Chain of handlers
+ * Chain of handlers, e.g. a IT dept where a ticket filters through layers depending on severity 
  * **Interface:**
 
 ![alt text](W3sDesign_Chain_of_Responsibility_Design_Pattern_UML.jpg)
@@ -27,3 +27,10 @@
 ## Builder
 
 * A pattern for limiting complexity when building complex objects
+* Allows you to create unique objects with a single constructor
+* **Interface**
+
+![alt text](W3sDesign_Builder_Design_Pattern_UML.jpg)
+
+* This relates to the factory pattern;
+  * The Factory pattern creates an entire object in a single method call, typically when the exact type is unknown until runtime, while the Builder pattern constructs a complex object step-by-step, providing more control over the configuration and composition process.

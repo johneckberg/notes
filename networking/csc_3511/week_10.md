@@ -24,6 +24,8 @@
 
 ### One-Time Pads
 
+The one-time pad (OTP) is an encryption technique that cannot be cracked in cryptography. It requires the use of a single-use pre-shared key that is larger than or equal to the size of the message being sent. In this technique, a plaintext is paired with a random secret key (also referred to as a one-time pad). Then, each bit or character of the plaintext is encrypted by combining it with the corresponding bit or character from the pad using modular addition.
+
 * Nice property of XOR: (x XOR y)XOR x = y
 * This is in the symmetric key setting, so we assume both alice and bob know this key (share the key)
 * The key is a randomly chosen bitstring; the key is equal length to the message
@@ -32,12 +34,11 @@
   2. Key re-use
 * The message is encoded by taking the XOR between the key and the message
 * The message is de-coded by taking the XOR between the Key and the cypher
-* Intuition of why this is secure: for a random encryption key, the distribution over the cypher bits is random (this doesn't really help me)
+* Intuition of why this is secure: for a random encryption key, the distribution over the cypher bits is random. Suppose Eve intercepts ciphertext from Alice': EQNVZ. If Eve tried every possible key, she would find that the key XMCKL would produce the plaintext hello, but she would also find that the key TQURI would produce the plaintext later, an equally plausible message. 
 
 * So what happens if we re-use a key? The attacker can take the XOR between both messages
 
-* Part of the issue is that the key must be the same length as the data, so 1 GB key for 1 GB data
- * is this true for all symmetric keys?
+* **The biggest issue in modern use is that the key must be the same length as the data, so 1 GB key for 1 GB data**
 
 ### Stream Cypher
 

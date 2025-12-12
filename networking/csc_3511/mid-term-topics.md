@@ -147,8 +147,6 @@ Neither Transport protocol has
 
 ## A day in the life of a (google) web request
 
-
-
 - Boot up computer
 - First, get an IP address via DHCP
 - You boot up your web browser, type in the URL
