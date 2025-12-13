@@ -4,6 +4,8 @@
 
 * MAC (Message Authentication Code) provides message integrity & authenticity using a shared secret key (symmetric), ideal for fast checks like verifying a file hasn't changed, while PKI (Public Key Infrastructure) uses asymmetric keys (public/private) & certificates for identity, non-repudiation, and scalable trust (like digital signatures), underpinning secure web (TLS), email, and device authentication, but involves more overhead because asymmetric encryption is heavier than symmetric
 
+* How does confidentiality work with TLS? This is where the symmetric secret key stuff comes in. HMAC provides message integrity and authenticity, proving data hasn't changed and comes from a trusted source, but does not offer confidentiality.
+
 ## See week #11 notes for credit card ATM example
 
 ## See week #11 notes for MAC vs HMAC

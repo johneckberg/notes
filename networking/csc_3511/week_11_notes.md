@@ -128,10 +128,18 @@ key to encrypt the message
   * only requires one key
   * he said this is a good choice, more popular 
 
-* note on how macs probably cant provide authenticity; researchers think it cant, but maybe dont know for sure
-  * he said look into AEAD
+A Message Authentication Code (MAC) is a string of bits that is sent alongside a message. The MAC depends on the message itself and a secret key. No one should be able to compute a MAC without knowing the key. This allows two people who share a secret key to send messages to each without fear that someone else will tamper with the messages. (At least, if someone does tamper with a message, this can be detected by checking to see if the MAC is right.)
 
-* The core difference between a hash and a MAC is that a MAC tag T=MAC(K,M) requires a secret key K. This ensures only someone with the key can generate a valid tag, providing authenticity (and integrity)
+The term "MAC" can refer to the string of bits (also called a "tag") or to the algorithm used to generate the tag.
+
+**HMAC is a recipe for turning hash functions** (such as MD5 or SHA256) into MACs. So HMAC-MD5 and HMAC-SHA256 are specific MAC algorithms, just like QuickSort is a specific sorting algorithm.
+
+There are other ways of constructing MAC algorithms; CMAC, for example, is a recipe for turning a blockcipher into a MAC.
+
+* Dr. Z notes that macs probably cant provide authenticity; researchers think it cant, but maybe dont know for sure
+  * he said look into AEAD, its used in protocols like TLS 1.3 and QUIC. 
+
+* The core difference between a hash and a MAC is that a MAC tag T=MAC(K,M) requires a secret key K. This ensures only someone with the key can generate a valid tag, providing authenticity (and integrity). note that "HMAC" is a specific construction of a MAC (from a hash function).
 
 * Method 1: Store H(M) for message M, where H is a cryptographic has function
 
@@ -140,6 +148,14 @@ key to encrypt the message
 * in this situation, the advantages of using method 2 over method 1 are: it provides both integrity and authenticity, while Method 1 only provides integrity under limited circumstances.Method 1 (Hash): The hash function H is public knowledge (no secret key). An adversary (Mallory) can modify the original message M to M′ and then easily compute and substitute the correct new hash H(M′). The receiver has no way to verify that the message actually came from a trusted sender (authenticity).
 
 Method 2 (HMAC): The calculation of the Message Authentication Code (MAC) requires the secret key K (i.e., MAC(K,M)). Only the legitimate sender and receiver share this key. If Mallory modifies the message M to M′, she cannot calculate the correct HMAC(K,M′) without knowing K. Therefore, the receiver can verify that the message originated from someone who possesses the secret key, providing message authenticity.
+
+* Now, if we were to compare a MAC to an HMAC, HMAC has the stronger property of being a pseudo-random function (PRF). This means that if Eve doesn't know the key, then all of Bob's HMAC tags look like completely random strings of bits, even if Eve knows or even chooses what messages Bob sends. 
+
+### MAC VS PKI
+
+* See tidbits for final for MAC vs PKI
+  * main difference is symmetric vs asymmetric key and non-repudiation (If the recipient passes the message and the proof to a third party, can the third party be confident that the message originated from the sender?)
+  * CA's/PKIS provide this via the fact that they are asymmetric and you can verify with the public key. with HMAC, you would have to verify with the same hash and private key 
 
 ### Diffie-Hellman Key Exchange: method of securely generating a symmetric cryptographic key over a public channel
 

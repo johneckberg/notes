@@ -115,16 +115,3 @@ When a packet arrives at an input port, the linecard performs the following step
 * **Scheduling:** A scheduling discipline chooses which queued datagram will be transmitted next. Examples include First Come, First Served, Priority, and Weighted Fair Queueing.
 
 ## Least Cost Routing, learning network graph 
-
-
-
-## TCP congestion control:
-
-    - Slow Start
-        - slow start with exponential build in cwnd
-    - loss via triple duplicate ack 
-        - when triple duplicate ack detected, we decrease cwnd by half (SSThresh)
-    - loss via timeout
-        - when timeout detected, drop back 1, redo slow-start
-
-![alt text](congestioncontrol.png)

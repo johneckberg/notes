@@ -18,3 +18,12 @@ TCP (Transmission Control Protocol) implements reliability mechanisms on top of 
 
 
 ## TCP congestion control
+
+    - Slow Start
+        - slow start with exponential build in cwnd
+    - loss via triple duplicate ack 
+        - when triple duplicate ack detected, we decrease cwnd by half (SSThresh)
+    - loss via timeout
+        - when timeout detected, drop back 1, redo slow-start
+
+![alt text](congestioncontrol.png)

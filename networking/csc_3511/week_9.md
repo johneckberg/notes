@@ -77,12 +77,11 @@ In a spoofed response from the .com server, Bob can:
 
 In cryptography, there are three common properties that we want on our data
 
-● Confidentiality: An adversary cannot read our messages
-● Integrity: An adversary cannot change our messages without being detected
-● Authenticity: I can prove that this message came from the person who claims
+* Confidentiality: An adversary cannot read our messages
+* Integrity: An adversary cannot change our messages without being detected
+* Authenticity: I can prove that this message came from the person who claims
 to have written it
-● Integrity and authenticity are closely related properties:
-
+* Integrity and authenticity are closely related properties:
   1. Before I can prove that a message came from a certain person, I have
   to prove that the message wasn’t changed!
   2. But they’re not identical properties. Later we’ll see some edge cases

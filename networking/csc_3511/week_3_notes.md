@@ -33,6 +33,32 @@
 * **DNS Time to Live**
     * A setting in a DNS record that determines how long a piece of information should be cached by a resolving name server before it is refreshed. Measured in seconds, a higher TTL can speed up lookups by allowing more frequent use of cached data, while a lower TTL ensures that changes to DNS records, such as when migrating a server, are propagated more quickl
 
+## Dig command & DNS fields:
+
+* the standard output to a dig command without flags has 5 sections: HEADER, QUERY, ANSWER, AUTHORITY and ADDITIONAL.
+
+### **The ANSWER SECTION:**
+
+* The first column lists the name of the server that was queried.
+* The second column is the Time to Live, a set timeframe after which the record is refreshed.
+* The third column shows the query class. In this case, IN stands for Internet.
+* The fourth column displays the query type. In this case, A stands for an A (address) record.
+* The final column displays the IP address associated with the domain name.
+
+![alt text](dig-command-terminal-output-answer-section.webp)
+
+### **Authority Section**
+
+* The Authority section indicates the server(s) that are the ultimate authority for answering DNS queries about that domain.
+
+* The reason for this section is that you can query any* DNS server(s) to answer a query for you. That server may choose though to answer the query from a cache. However, if you want to ensure you get an authoritative response ("from the horses mouth" so to speak) - you should ask the server(s) in the authority section. 
+
+### **Additional Section**
+
+* The ADDITIONAL SECTION contains data that you did not explicitly ask for, but the server gave it to you anyway.
+* For example, if you asked a DNS server for all resource types and got NS records, the same authoritative server might also know the A and AAAA records for those nameservers and think its was helpful to give then to you. 
+
+
 ***
 
 ## UDP protocol

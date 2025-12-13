@@ -108,7 +108,7 @@ AES uses a substitution-permutation network (SPN).
 
     * Private Key (SK): Used to decrypt messages sent to the user or to create a digital signature by the user. It must be kept secret.
 
-* Two big benifits/uses:
+* Two big benefits/uses:
 
 * Confidentiality: A sender encrypts a message with the recipient's Public Key. Only the recipient's matching Private Key can decrypt it.
 
