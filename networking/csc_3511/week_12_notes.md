@@ -60,6 +60,17 @@
 
 ### DNSSEC
 
+* DNSSEC creates a secure domain name system by adding cryptographic signatures to existing DNS records. These digital signatures are stored in DNS name servers alongside common record types like A, AAAA, MX, CNAME, etc. By checking its associated signature, you can verify that a requested DNS record comes from its authoritative name server and wasn’t altered en-route, opposed to a fake record injected in a man-in-the-middle attack.
+
+* To facilitate signature validation, DNSSEC adds a few new DNS record types:
+
+    * RRSIG - Contains a cryptographic signature (private keys)
+    * DNSKEY - Contains a public signing key
+    * DS - Contains the hash of a DNSKEY record
+    * NSEC and NSEC3 - For explicit denial-of-existence of a DNS record
+    * CDNSKEY and CDS - For a child zone requesting updates to DS record(s) in the parent zone.
+
+
 As always, we have a trade-off between security and speed; we assume a lot (all?) of the higher level dns servers we delegate to are not compromised
 
 #### Securing DNS Lookups: What do we Really Need

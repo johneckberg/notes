@@ -50,6 +50,9 @@ Now when the victim visits google.com, they’ll actually be sending packets to 
 ### Kaminsky Attack
 
 * Dan Kaminsky, security researcher, noticed that DNS clients would cache additional glue records as if they were authoritative answers, even though they aren’t
+
+#### Kaminsky Vs. Previous attacks
+
 * **Previous attacks: poison the final answer, the type A record with the IP address, Kaminsky Attack: goes up one level and hijacks the authority records (NS record) instead**
 
 

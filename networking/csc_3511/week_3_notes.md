@@ -25,17 +25,28 @@
 * **Authoritative & Recursive DNS**
     * **Authoritative Servers** hold the definitive (non-cached) hostname-to-IP address mappings for a domain. They sit at the bottom of the DNS hierarchy.
     * The **Local DNS Server** (or **Recursive Resolver**) is the server a host first contacts. It performs **recursive queries** up the hierarchy (Root, TLD, then Authoritative) on the client's behalf to resolve the name, and then caches the result.
+    * Recursive vs iterative DNS
+        * Recursive DNS is when a client asks a DNS resolver for a domain, and the resolver does all the work (querying root, TLD, authoritative servers) to get the final IP, returning it to the client. Iterative DNS is when the client (or resolver) asks a server, gets a referral (another server to ask), and then queries that next server directly, repeating until the answer is found, giving the client more control but spreading the load
     * The **`dig` command** is a utility used for performing DNS lookups and troubleshooting.
 
 * **DNS Caching**
     * Why does the local DNS server perform caching?: 1. DNS caching results in less load elsewhere in DNS, when the reply to a query is found in the local cache. 2. DNS caching provides for faster replies, if the reply to the query is found in the cache.
 
 * **DNS Time to Live**
-    * A setting in a DNS record that determines how long a piece of information should be cached by a resolving name server before it is refreshed. Measured in seconds, a higher TTL can speed up lookups by allowing more frequent use of cached data, while a lower TTL ensures that changes to DNS records, such as when migrating a server, are propagated more quickl
+    * A setting in a DNS record that determines how long a piece of information should be cached by a resolving name server before it is refreshed. Measured in seconds, a higher TTL can speed up lookups by allowing more frequent use of cached data, while a lower TTL ensures that changes to DNS records, such as when migrating a server, are propagated more quickly
+
+## DNS record types (non exhaustive list)
+
+* A (Address) Record: Maps a domain name (e.g., example.com) to an IPv4 address (e.g., 192.0.2.1).
+* AAAA (Quad-A) Record: Maps a domain name to an IPv6 address.
+* CNAME (Canonical Name) Record: An alias, pointing one domain/subdomain to another domain name (e.g., www.example.com to example.com).
+* MX (Mail eXchange) Record: Specifies mail servers responsible for accepting email for a domain.
+* NS (Name Server) Record: Identifies the authoritative name servers for a DNS zone.
 
 ## Dig command & DNS fields:
 
 * the standard output to a dig command without flags has 5 sections: HEADER, QUERY, ANSWER, AUTHORITY and ADDITIONAL.
+
 
 ### **The ANSWER SECTION:**
 

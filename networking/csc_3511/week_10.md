@@ -104,9 +104,9 @@ AES uses a substitution-permutation network (SPN).
 
 * Unlike symmetric-key (e.g., Caesar Cipher, AES), which uses one shared key, public-key cryptography uses a pair of mathematically linked keys for a user:
 
-    * Public Key (PK): Used to encrypt messages to the user or to verify a digital signature from the user. It is shared widely.
+    * Public Key (PK): Used to **encrypt** messages to the user or to verify a digital signature from the user. It is shared widely.
 
-    * Private Key (SK): Used to decrypt messages sent to the user or to create a digital signature by the user. It must be kept secret.
+    * Private Key (SK): Used to **decrypt** messages sent to the user or to create a digital signature by the user. It must be kept secret.
 
 * Two big benefits/uses:
 

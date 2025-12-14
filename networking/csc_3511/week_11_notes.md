@@ -77,6 +77,14 @@ Security Property: Digital signature schemes are secured against EU-CPA (Existen
 
 * Issue: No mechanism to verify that a public key belongs to its claimed owner. Public-key cryptography alone is not secure against man-in-the-middle attacks
 
+* what could happen here is a fake signature:
+  * intercepting the Key Exchange: An attacker (Mallory) positions themselves between Alice and Bob.
+  * Impersonation: When Alice requests Bob's public key, Mallory intercepts the request. Mallory sends Alice Mallory's own public key, claiming it is Bob's.
+  * No Detection: Alice receives the key, sees it's a valid public key, and believes she is about to communicate securely with Bob. She has no way to confirm that this key belongs to Bob.
+  * Alice encrypts her message using the public key she received (which is Mallory's key).
+  * Mallory intercepts this message, uses her corresponding private key to decrypt it, reads it, and potentially modifies it.
+  * Mallory then re-encrypts the (modified) message using Bob's actual public key (which Mallory has already obtained from Bob).
+
 * So how do we make a chain of trust? You cannot gain trust if you trust nothing. You need a root of trust!
 
 * EvanBot: EvanBot is our trust anchor (root of trust)
