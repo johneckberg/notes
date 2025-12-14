@@ -155,8 +155,17 @@ Neither Transport protocol has
     - Port: Can you specify a port in the URL? yes. Do people? no not typically, so its assumed by convention (default port)
     - Once the IP & port are known, we then establish the TCP handshake (if using a http version before http/3)
 - Then finally, we can form & send the HTTP request
-- This goes from your local network, through your router, to your ISP, to the web cache or web server hosting the site, or at least the site proxy/gateway most likely via public peering, which happens at IXPs
-    - This gets deeper into BGP stuff that we will learn about later 
+- This goes through your local network
+    - Your computer needs to send this IP packet to the router's IP address, but to do that, it first needs the router's MAC address.
+    - Your computer checks its ARP cache.
+    - If the router's MAC address is in the cache, it uses it immediately.
+    - If it's not in the cache:
+        - Your computer sends an ARP Request broadcast to the entire local network: "Who has the IP address of the router (e.g., 192.168.1.1)? Tell me your MAC address."
+        - Your router receives the broadcast and sends an ARP Reply directly back to your computer: "I am 192.168.1.1, and my MAC address is XX:XX:XX:XX:XX:XX."
+        - Your computer records this MAC address in its ARP cache.
+- Next, we can send it through the router, to your ISP, to the web cache or web server hosting the site, or at least the site proxy/gateway most likely via public peering, which happens at IXPs
+    - BGP (Border Gateway Protocol)
 - We get the HTTP reply of the web sever and the clients web browser begins to process the HTML document we requested 
     - The browser starts reading the html from the top, and starts fetching all CSS and JavaScript files referenced in the HEAD section. The page will not be painted (shown) until all the CSS and JavaScript files in the HEAD have been downloaded and evaluated.
+      - these may be in a CDN or packaged using something like Vite
     - see [pre-load html attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/preload)

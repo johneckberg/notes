@@ -96,12 +96,14 @@ PKI Components: The full Public Key Infrastructure includes the: Certificate Aut
 * Public-key cryptography: Two keys, private and public
 * Public-key encryption: One key encrypts, the other decrypts
 * Security properties similar to symmetric encryption
-* RSA Enc: Produce a pair e and d such that Med = M mod N
 * Hybrid encryption: Encrypt a symmetric key, and use the symmetric
 key to encrypt the message
 * Digital signatures: Integrity and authenticity for asymmetric schemes
 * RSA Sigature: Sign (Encrypt) the hash with the private key
 * Other popular signature schemes: DSA, ECDSA, EdDSA, BLS...
+
+* **SEE WEEK 10 notes for more RSA**
+![alt text](RSAimages.png)
 
 ## Day 3:
 
@@ -166,6 +168,8 @@ Method 2 (HMAC): The calculation of the Message Authentication Code (MAC) requir
   * then each party sends their message (equal to g^secret key mod p)
   * from this, the other party can calculate the secret message (equal to receivedmessage^secretkey mod p)
 
+  * **(g^a)^b mod p = (g^b)^a mod p**
+
 * funny note; apparently the paper was initially rejected from a journal for being too radical
 * Relies on the discrete log problem for computational hardness 
 
@@ -180,6 +184,6 @@ This vulnerability can be solved via digital signatures
     * d-f provides **forward secrecy**
 
 * What values can be observed during transit? 
- * An adversary (Eve/Mallory) observes the public parameters: the large prime p, the generator g, Alice's public value A=ga(modp), and Bob's public value B=gb(modp). The shared secret K=gab(modp) cannot be computed from these public values (this is the computational difficulty of the Diffie-Hellman problem).
+ * An adversary (Eve/Mallory) observes the public parameters: the large prime p, the generator g, Alice's public value A=ga(modp), and Bob's public value B=gb(modp). The shared secret K=gab(modp), or a or b cannot be computed from these public values (this is the computational difficulty of the Diffie-Hellman problem).
 
 
