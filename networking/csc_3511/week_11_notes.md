@@ -73,10 +73,6 @@ Security Property: Digital signature schemes are secured against EU-CPA (Existen
 
 ### Certificates and Chain of trust
 
-* A certificate is a signed endorsement/signature of someones public key. It contains two things, the identity and the key
-
-* Issue: No mechanism to verify that a public key belongs to its claimed owner. Public-key cryptography alone is not secure against man-in-the-middle attacks
-
 * what could happen here is a fake signature:
   * intercepting the Key Exchange: An attacker (Mallory) positions themselves between Alice and Bob.
   * Impersonation: When Alice requests Bob's public key, Mallory intercepts the request. Mallory sends Alice Mallory's own public key, claiming it is Bob's.
@@ -87,6 +83,24 @@ Security Property: Digital signature schemes are secured against EU-CPA (Existen
 
 * So how do we make a chain of trust? You cannot gain trust if you trust nothing. You need a root of trust!
 
+* A typical digital certificate (following the common X.509 standard) is an ordered structure that contains several pieces of information, most importantly:
+
+  * Identity: Information about the owner (or "Subject") of the public key. This includes the name, organization, location, and domain name (for SSL/TLS certificates).
+
+  * Public Key: The public key that belongs to the Subject.
+
+  * Issuer Information: The name of the Certificate Authority (CA) that issued the certificate.
+
+  * Validity Period: The "Not Before" and "Not After" dates, defining when the certificate is valid.
+
+  * Serial Number: A unique identifier assigned by the CA.
+
+  * Signature Algorithm: The algorithm used by the CA to sign the certificate (e.g., SHA256 with RSA).
+
+  * Digital Signature: The CA's cryptographic signature over all the preceding data
+
+* Issue: No mechanism to verify that a public key belongs to its claimed owner. Public-key cryptography alone is not secure against man-in-the-middle attacks
+
 * EvanBot: EvanBot is our trust anchor (root of trust)
   * Alice wants Bob’s public key. Alice trusts EvanBot
 * We can expand/scale this idea to a **Hierarchal Trust Chain**
@@ -96,6 +110,15 @@ Security Property: Digital signature schemes are secured against EU-CPA (Existen
 
 * We can use OpenSSL on the SEED virtual machine to obtain Google's certificate chain, or we can open cmd and type “certmgr.msc” to browse certificate chains on windows
   * Read cert chain from bottom to top, where the top is the for example web server, and you work up the chain
+
+### Signature Vs. Certificate
+
+* A digital signature is produced when you use a private key to certify that the signed data is authentic (you agree with the content). It cryptographically binds the data to your identity (non-repudiation) and protects it against modification (the signature verification would fail).
+A digital certificate is a sort of document stating that an entity (e.g. you) is the owner of a given private key, by linking the entity (e.g. through your name and e-mail address, or other unambiguous identifiers) to the public key associated with the private key.
+
+* You can perform a signature without a certificate (having a private and a public key pair is sufficient), but the recipient might not have the assurance that the public key comes from you.
+
+* **NOTE** For a digital certificate, there can be multiple private keys if the signer and owner of the cert are different entities; one private key for the signature and one for the actual certificate 
 
 ### PKI: Public Key Infrastructure
 

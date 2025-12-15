@@ -31,7 +31,6 @@ network are trusted, and those outside are not
     * Allow inbound traffic to certain, trusted services (e.g. SSH)
     * Deny all other inbound traffic (e.g., IP forwarding)
 
-
 ### Packet Filters
 
 * Firewalls are often packet filters: Works at network layer and transport layer
@@ -39,6 +38,22 @@ network are trusted, and those outside are not
   * Inspect network packets and chooses a handling method: forward or drop
 
 * Stateful Vs. Stateless Packet Filters
+
+Stateful firewalls inspect traffic context by tracking active connections (using a state table) for enhanced security, while stateless firewalls filter packets individually based on static rules (IPs, ports) for speed and simplicity; stateful offers deep inspection but uses more resources, ideal for complex threats, whereas stateless provides basic, fast filtering, suitable for simple networks
+
+* Potential fields for a stateful firewall
+
+  * Source/Destination IP Addresses: Identifies where traffic is coming from and going to.
+  * Source/Destination Ports: Specifies the application ports (e.g., 80 for HTTP, 443 for HTTPS).
+  * Protocol: The transport protocol (TCP, UDP, ICMP) being used.
+  * TCP Flags: For TCP, flags like SYN, ACK, FIN help track the connection's lifecycle (setup, data transfer, teardown).
+  * Sequence Numbers: Ensures packets are in the correct order for TCP sessions.
+  * Connection State: The firewall's internal record (state table) of established, valid conversations
+
+  * For ICMP packets
+    * ICMP Timeout
+    * IMCP message type
+    * ICMP ID
 
 ### Firewall Limits
 
