@@ -13,10 +13,10 @@
 
 * Step 1: Exchange Hellos
   * The client sends ClientHello with
-    * A 256-bit random number RC (“client random”)
+    * A 256-bit random number RC (“client random”) **This is the nonce** to prevent replay attacks
     * A list of supported cryptographic algorithms (Cipher Spec)
   * The server sends ServerHello with
-    * A 256-bit random number RS (“server random”)
+    * A 256-bit random number RS (“server random”) **This is the nonce** to prevent replay attacks
     * The algorithms to use (chosen from the client’s list)
 * Step 2: Certificate
   * Server sends its certificate containing:
@@ -40,6 +40,11 @@
   * Two approaches: Encrypt-then-MAC, MAC-then-encrypt
     * Modern cryptographic best practices favor Encrypt-then-MAC, where the message is first encrypted, and the MAC is calculated over the ciphertext.
 **Now we can send messages securely!**
+
+* The MAC provides: Integrity (data hasn't changed) & Authenticity (data comes from the key holder)
+* The Certificate provides: identity/public key distribution
+* The Signature provides: authenticity of the Certificate
+* The Public key for the Signature provides: authenticity of the certificate (chain of trust)
 
 #### TLS Guarantees
 

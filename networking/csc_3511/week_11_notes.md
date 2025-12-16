@@ -108,8 +108,11 @@ Security Property: Digital signature schemes are secured against EU-CPA (Existen
   * We can get around the brittleness of this scheme (single point of failure being root node) by creating multiple trust anchors.
   * Public keys are hard-coded into operating systems and devices
 
+**Certificate chain goes: private key signature, which can be verified with the public key, then next member confirms the authenticity of that signature/key pair with their own signature, which in turn needs to be verified via their public key, and we keep going down the chain until we hit the self signed root**
+
 * We can use OpenSSL on the SEED virtual machine to obtain Google's certificate chain, or we can open cmd and type “certmgr.msc” to browse certificate chains on windows
-  * Read cert chain from bottom to top, where the top is the for example web server, and you work up the chain
+  * Read cert chain from bottom to top, where the top is the for example web server.
+  * We can verify the chain from the End-Entity Certificate (server/user) "upwards" (really downwards from the perspective of the web server) through Intermediate CAs to the self-signed Root Certificate Authority. End-Entity → Intermediate(s) → (Root).
 
 ### Signature Vs. Certificate
 
@@ -187,8 +190,16 @@ Method 2 (HMAC): The calculation of the Message Authentication Code (MAC) requir
 ### MAC VS PKI
 
 * See tidbits for final for MAC vs PKI
-  * main difference is symmetric vs asymmetric key and non-repudiation (If the recipient passes the message and the proof to a third party, can the third party be confident that the message originated from the sender?)
+
+* The easiest way to think of the difference is the type of key used:
+  * MAC Signature (Symmetric): Uses a shared secret key for both signing and verification.
+  * PKI Signature (Asymmetric): Uses a private key to sign and a publicly distributed public key to verify
+  * Also non-repudiation (If the recipient passes the message and the proof to a third party, can the third party be confident that the message originated from the sender?) Not with MAC: the verifier also knows the secret key and could have created the signature, so the signer can deny having created i
   * CA's/PKIS provide this via the fact that they are asymmetric and you can verify with the public key. with HMAC, you would have to verify with the same hash and private key 
+  * We can use MAC to ensure the integrity/authentication of an API, as this is a situation where it makes sense to have a preshared private key.
+  The choice between a Message Authentication Code (MAC) signature (like HMAC) and a Public Key Infrastructure (PKI) digital signature (like RSA or ECDSA) depends entirely on who needs to verify the signature and whether you need non-repudiation.
+
+
 
 ### Diffie-Hellman Key Exchange: method of securely generating a symmetric cryptographic key over a public channel
 
@@ -215,6 +226,5 @@ This vulnerability can be solved via digital signatures
     * d-f provides **forward secrecy**
 
 * What values can be observed during transit? 
- * An adversary (Eve/Mallory) observes the public parameters: the large prime p, the generator g, Alice's public value A=ga(modp), and Bob's public value B=gb(modp). The shared secret K=gab(modp), or a or b cannot be computed from these public values (this is the computational difficulty of the Diffie-Hellman problem).
-
+ * An adversary (Eve/Mallory) observes the public parameters: the large prime p, the generator g, Alice's public value A=ga(modp), and Bob's public value B=gb(modp). The shared secret K=gab(modp), or a or b cannot be computed from these public values (this is the computational difficulty of the Diffie-Hellman problem). For g^a = b mod(p), even with g, b and p, a is very hard to find. 
 

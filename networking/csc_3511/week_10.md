@@ -100,6 +100,73 @@ AES uses a substitution-permutation network (SPN).
 
 **See HW 10 for example calculation**
 
+### RSA Steps:
+
+1. RSA Private Key Generation
+
+* The private key is found during the key generation process. This process creates a key pair: a public key (for encryption and verifying signatures) and a private key (for decryption and creating signatures).
+
+    * Step 1: Choose Two Large Primes
+
+        * Select two distinct, large prime numbers, p and q. These should be kept secret.
+
+    * Step 2: Calculate n (Modulus)
+
+        * Calculate the modulus, n, by multiplying the primes: n=p⋅q.
+
+        * n is part of both the public and private keys.
+
+    * Step 3: Calculate ϕ(n) (Euler's Totient Function)
+
+        * Calculate Euler's totient function for n: ϕ(n)=(p−1)(q−1). This value must be kept secret.
+
+    * Step 4: Choose the Public Exponent (e)
+
+        * Choose an integer e such that 1<e<ϕ(n) and e is coprime to ϕ(n) (i.e., gcd(e,ϕ(n))=1).
+
+    * Step 5: Calculate the Private Exponent (d)
+
+        * Calculate the integer d such that it is the modular multiplicative inverse of e modulo ϕ(n).
+
+        * This is found using the extended Euclidean algorithm, where d⋅e≡1(modϕ(n)).
+
+        * d is the private exponent and is the critical part of the private key ({d,n}).
+
+    The private key consists of the pair {d,n}.
+
+2. Encrypting a Message
+
+* A sender uses the recipient's public key {e,n} to encrypt a message M.
+
+    * Step 1: Convert Message to an Integer
+
+        * The message M must be converted into an integer m, where 0≤m<n. If M is large, it is broken into blocks.
+
+    * Step 2: Apply the Encryption Formula
+
+        * The ciphertext C is calculated using the public exponent e:
+        C=me(modn)
+
+        * The recipient then uses their private key d to decrypt C: m=Cd(modn).
+
+3. Signing a Message
+
+* A sender uses their own private key {d,n} to sign a message M. This proves the message came from them (authentication) and has not been altered (integrity).
+
+  * Step 1: Hash the Message
+
+      * A cryptographic hash function (like SHA-256) is applied to the original message M to create a fixed-size message digest, h. This is much shorter than M.
+      h=Hash(M)
+
+  * Step 2: Apply the Signing Formula
+
+      * The digital signature S is calculated by "decrypting" the hash h using the sender's private exponent d:
+      S=hd(modn)
+
+  * Step 3: Send Message and Signature
+
+      * The sender sends the original message M along with the signature S.
+
 ![alt text](RSAimages.png)
 
 * Unlike symmetric-key (e.g., Caesar Cipher, AES), which uses one shared key, public-key cryptography uses a pair of mathematically linked keys for a user:
