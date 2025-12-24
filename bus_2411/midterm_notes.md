@@ -170,8 +170,126 @@ The ability to influence **which emotions we feel, when we feel them, and how we
     * **Self-Awareness:** Recognizing emotional triggers and physical stress signals to interrupt negative cycles.
     * **Modeling:** Emotionally regulated leaders model composure and intentional responses, which fosters a climate of psychological safety and enhances team resilience.
 
+## TO ADD
 
-- headers will be each topic covered; probably 1-2 a week 
-    - then review chapters 
-        - what theories are covered in each chapter
-        - what charts are covered in each chapter
+* Characteristics of effective leaders
+ * 
+    Model the Way: Leaders should set an example for others to follow by demonstrating commitment and relaying certain values
+    Inspire a Shared Vision: Leaders should focus on the future and make subordinates participate in achieving the vision
+    Challenge the Process: Leaders should challenge the norms, be innovative, and encourage others to be innovative
+    Enable Others to Act: Leaders should enable their subordinates to act by providing them with the necessary resources and support
+    Encourage the Heart: Leaders should recognize and reward their subordinates’ contributions
+
+* types of power
+ * 6 types of power
+* Kotter's Functions of Management Versus Leadership
+
+* team development stages
+ * Forming (getting to know each other), Storming (conflict and role negotiation), Norming (establishing rules and cohesion), Performing (high productivity and collaboration), and Adjourning (project completion and disbanding)
+* Characteristics of high-performance teams
+ * Common purpose and goals
+ * Intention
+ * Clear roles
+ * Communication processes
+ * Accepting and supportive leadership
+ * Small size
+ * High levels of technical and interpersonal skills
+ * Open relationships and trust
+ * Accountability
+ * Reward structures
+* conflict management strategies
+ * Avoiding
+ * accomidating
+ * Compromising
+ * Competing
+ * collaborating
+* Eight-Step Model for Resolving Team Conflict
+  * Determine the best place to deliver feedback.
+  * Set the context, disclose your humanity, and/or address what the other is thinking.
+  * Set the context, disclose your humanity, and/or address what the other is thinking.
+  * Seek understanding. Ask questions.
+  * Clarify and evaluate alternative solutions
+  * Identify an action plan.
+  * Summarize decisions, next steps, and accountability.
+  * Thank the person.
+
+* decision making frameworks (cant find this)
+
+
+
+* Strategies for addressing cross-cultural diversity
+ * TRAVEL
+* Individual diversity strategies
+ * educate self
+ * Avoid derogatory comments
+ * Be aware of current connotations of words
+ * be aware of biases and how that effects your perception of others
+* Organizational diversity strategies
+ * Affirmative action
+
+* Active listening strategies
+ * Show interest and be sincere in listening
+ * Ask questions if you don’t understand completely
+ * Avoid distractions
+ * Use direct eye contact
+ * Do not interrupt
+ * Read both the verbal and nonverbal messages
+ * Be empathetic
+ * Evaluate the message after hearing all the facts
+ * Concentrate on the message as well as the messenger
+ * Give feedback to check accuracy, express your perspective, and broaden the interaction
+ * Listen with your entire body
+* Barriers to communication
+ * Information Overload
+ * Emotions
+ * Trust and Credibility
+* Dimensions of diversity notes?
+    * surface level vs deep level diversity components
+* Stress?
+
+
+* other theories of motivation
+
+## Weeks 7-12:
+
+* 7: 
+* 8:
+* 9: 
+    * Focus on:
+
+    * Historical perspectives
+    * How stereotypes exert influence and what costs they impose on the targets of stereotyped perceptions
+* 10:
+    * Chapter 11 - This chapter introduces you to conflict and why conflict management is important, along strategies to prevent and resolve conflict.  
+
+    * Focus on:
+        * What is conflict?
+        * Why is conflict management important?
+        * Sources of interpersonal conflict
+        * Conflict management strategies
+        * Organizational and interpersonal techniques for preventing or resolving conflict
+
+* 11:
+    * Chapter 15 - Effective and ethical use of power and influence 
+
+    * Focus on:
+        * What is power and why is it important?
+        * What are power bases?
+
+    * Chapter 18 - This chapter focuses on leadership and empowerment through delegation 
+
+    * Focus on:
+        * What is leadership?
+        * Characteristics of effective leaders
+        * What is empowerment?
+        * Empowerment through effective delegation
+
+* 12: 
+
+    * Chapter 5: Understanding and working with Diverse Others
+
+    * Focus on:
+        * Cross-cultural diversity
+        * Strategies for addressing cross-cultural diversity
+
+
