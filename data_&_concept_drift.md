@@ -31,7 +31,7 @@ Different architectures require specialized calibration to ensure confidence sco
 * **Key Idea**: Moving beyond raw probabilities to Tsallis and Rényi entropy to better detect incorrect words.
 
 
-* **Zero-Shot (Vision-Language)**: Large models like CLIP are often miscalibrated in zero-shot settings.
+* **Zero-Shot (Vision-Language)**: embedding based zero shot models like CLIP are often miscalibrated becuase of the energy based/contrastive training.
 * **Resource**: [Enabling Calibration In The Zero-Shot Inference of Large Vision-Language Models (Arxiv)](https://arxiv.org/abs/2303.12748).
 * **Key Idea**: Proposes "Zero-Shot-Enabled Temperature Scaling" to preserve the ability to generalize to unseen classes while maintaining reliable confidence.
 
