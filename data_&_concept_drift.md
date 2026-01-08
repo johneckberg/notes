@@ -22,6 +22,7 @@ This occurs when the input data changes, making the input distribution non-stati
 
 * **This is closely related to OOD detection**
   * Outlier vs anomaly are sometimes used as distinct terms but are very often interchangeable. Better to focus specifically on the term out of distribution.
+  * [Maximum Likelihood Estimation is All You Need for Well-Specified Covariate Shift](https://openreview.net/forum?id=eoTCKKOgIs)
   * In practice I think likelihood ratio methods are the best it’s just that they’re usually very expensive
   * Still trying to clarify the relationship between density ratios and likelihood ratios
     * [Likelihood ratios for OOD detection](https://arxiv.org/abs/1906.02845)
