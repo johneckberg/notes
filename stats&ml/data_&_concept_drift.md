@@ -52,6 +52,9 @@ Different architectures require specialized calibration to ensure confidence sco
 
 * **Detecting covariate shift in text for LLM applications**
 
+  * This is for classification purposes I think? but interesting none the less
+    * [Measuring Distributional Shifts in Text: The Advantage of Language Model-Based Embeddings](https://arxiv.org/abs/2312.02337)
+
 
 
 ## 4. Temperature Scaling
@@ -65,6 +68,7 @@ A post-processing technique used to **calibrate** model probabilities.
 ## Unorganized thoughts:
 
 * Could we do energy based likelihood ratios to cancel out the normalizing constant while retaining the implicit knowledge?
+  * the perturbed data would need to still originate from the original data generating distribution
 
 * I have a gut feeling arf/forde could help with this but I need to do more research.
 Arf is stupid fast bc it turns multivariate density estimators into a set of univariate estimators and can capture non linearities in a way that pca methods can’t. Also works with categorical variables in a way that pca methods can’t. Might also be more interpretable. 
