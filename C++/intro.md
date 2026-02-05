@@ -19,6 +19,11 @@
   * String (or any object): null
   * boolean: false*
 
+* C++ auto initializes global variables, does not initialize local variables. I'm not sure if class vars get auto initialized
+
+* Type mismatch:
+  * c++ will not give you a type error, for example if we try and assign a double to a variable initialized as an int; it will just drop it and return no error
+
 ## C++ Compilation process
 
 * There is no advantage to intermediate object files with a single source compilation. With multiple sources you can speed up builds when making source code changes. That is, you only need to re-compile those source files with changes and then re-link the object files.
@@ -57,6 +62,25 @@ o g++ main.o -o main
 ### The Four Steps
 
 * Preprocessing
+  * .cpp, .cxx, .cc, .h, .hp
 * Compilation (turns to assembly)
+  * .s, .asm
 * Assembly (goes from assembly to machine code) (this is where we get to non human readable files)
-* Linking
+  * .o, .obj
+* Linking (combining everything to make a self contained executable)
+  * .exe, .out
+
+
+* Strings are not a reference type in c++, unlike java
+* String are also mutable in c++, because the are not reference types
+* In C++, a literal like "Hello" is stored in a read-only section of memory and is essentially an immutable array of characters (const char*). However, the std::string class used in modern C++ is designed to be modified.
+
+if we can set a pass by reference to const to it doesn't get edited and pass by reference is more memory efficient, why would we ever pass by value?
+
+understand arrays passed to functions
+
+Go back overy arrays and static exercise
+Where are static vars held again? C++ memory model, whats above the stack and heap 
+
+Is there any reason we would want to use string literals over the std::string class?
+

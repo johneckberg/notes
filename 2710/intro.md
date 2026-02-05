@@ -48,3 +48,10 @@
   * The line doesn't represent information flow; just involvement
   * Never one true use case diagram; you can break down the same problem in different ways
 ![use case example](use_case.png)
+
+## None-Functional Requirements
+
+* A property of the system, not a specific operation
+* These are hard to test
+
+## Stories Vs. Requirements
