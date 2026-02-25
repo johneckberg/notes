@@ -5,33 +5,39 @@
 * [Misunderstanding a P-value?](https://stats.stackexchange.com/questions/166323/misunderstanding-a-p-value/166327#166327)
   * "The p – value represents the apriori probability of making a type I error, that is, of rejecting the null hypothesis under the assumption that it is true."
   * This **IS NOT** the same as saying that its, "the probability of making a type I error, or rejecting the null hypothesis when it is true."
-  * 
+  * In frequentist statistics, the null hypothesis isn't a random variable. It’s a fact of nature. It doesn't have a "3% chance" of being true. It’s either 100% true or 0% true.
+  * The p-value is the tool we use to maintain that 5% error rate across thousands of different experiments.
+  
 * [Interpretation of p-value in hypothesis testing](https://stats.stackexchange.com/questions/46856/interpretation-of-p-value-in-hypothesis-testing)
   * "The combination of Fisherian P-values with Neyman-Pearsonian error rates has been called an incoherent mishmash, and it is unfortunately very widespread."
   * "A decision to reject the null hypothesis on the basis of a small P-value typically depends on 'Fisher's disjunction': Either a rare event has happened or the null hypothesis is false. In effect, it is rarity of the event is what the P-value tells you rather than the probability that the null is false."
 
-[utexas: Type I and II Errors and Significance Levels](https://web.ma.utexas.edu/users/mks/statmistakes/errortypes.html)
+* [utexas: Type I and II Errors and Significance Levels](https://web.ma.utexas.edu/users/mks/statmistakes/errortypes.html)
 
-
-**Under any null hypothesis, the p-values are uniformly distributed: all p-values between 0 and 1 are equally likely.**
-
-In leu of a formal proof, here’s some intuition. For any significance level $\alpha$, how often will a statistical test under the null hypothesis give a significant result that we falsely reject? Of course $\alpha$, by the definition of the significance level. But for a test to be significant at $\alpha$, it must be true that the p-value $p < \alpha$. So we’re saying that $p < \alpha$ with probability $\alpha$. Or $Pr(p < \alpha) = \alpha$, which is the definition of a uniform distribution.
-
-More formally, when we perform a statistical test, we calculate some statistic $\hat{S}$ from the data. Under the null, this statistic follows some distribution $S$. The statistic $\hat{S}$ is associated with a p-value $\hat{p}$, which by definition is the probability that the test statistic is at least as extreme as $\hat{S}$: $\hat{p} = Pr(S > \hat{S})$. But note also that for the p-value to be smaller than $\hat{p}$ would require that the test statistic be larger than $\hat{S}$, so $Pr(p < \hat{p}) = Pr(S > \hat{S})$, which we just said is equal to $\hat{p}$. So $Pr(p < \hat{p}) = \hat{p}$, which is again the definition of a uniform distribution.
-
-If you decide to reject the null whenever p<0.05, you are essentially "trapping" the bottom 5% of that uniform distribution. If you start claiming your error rate is 1% just because you got a 0.01, you are "cherry-picking" your significance level after seeing the data. To have a long-run error rate of 1%, you would have had to commit to α=0.01 before you ran the test.
-
+* [Probability integral transform](https://matthewfeickert.github.io/Statistics-Notes/notebooks/Introductory/probability-integral-transform.html)
 Every single value in that 0 to 0.05 range is a "false alarm."
 
-Notice that nowhere did I have to assume anything about $S$, the distribution of the test statistic. This result holds no matter what test statistic we do.
 
-* So let's present a case of this contradiction:
+* **The p value does not quantify the probability that the null is false, rather is quantifies the probability that our data would be observed GIVEN the conditions specified by the null**
+* **You can't use the specific location of a mouse inside a trap to redefine how often the trap snaps.**
+
+* **Under any null hypothesis, the p-values are uniformly distributed: all p-values between 0 and 1 are equally likely.** When you take any continuous random variable and plug it into its own Cumulative Distribution Function (CDF), the resulting values are always uniformly distributed between 0 and 1 (this follows from the Probability integral transform). Since the p-value calculation is essentially just applying the CDF to our data, the p-value must be uniform if the data actually follows that distribution (i.e., if the Null is true).
+
+* So let's present an argument for this via contradiction:
   * Consider the following situation:
     * The null hypothesis is true.
-    * α has been set conventionally at 0.05.
+    * $\alpha$ has been set conventionally at 0.05.
     * The computed p-value is 0.01.
-  * Now, the probability of getting data as extreme or more extreme than your data is 1% (that's what the p-value   means). You have rejected the null hypothesis, making a type I error. Is it true that the long run type I error rate in this situation is also 1%?
-  * Type I error isn't a property of a single result, its a property of the significance level you set. alpha is the probability of making a type 1 error, not p. You would reject the null hypothesis anytime the p value is below alpha. The long run probability of this is then alpha, not p. If you had gotten a p-value of 0.02, you would still have rejected the null. In fact, you would have rejected the null even if p had been 0.0499 repeating.
+  * Now, the probability of getting data as extreme or more extreme than the data is 1% (that's what the p-value   means). we have rejected the null hypothesis, making a type I error. Is it true that the long run type I error rate in this situation is also 1%?
+  * When we perform a statistical test, we calculate some statistic (which in this case I am assuming is continuous) $\hat{S}$ from the data. Under the null, this statistic follows some distribution $S$. The statistic $\hat{S}$ is associated with a p-value $\hat{p}$, which again by definition is the probability that the test statistic is at least as extreme as $\hat{S}$: $\hat{p} = Pr(S > \hat{S})$. But note also that for the p-value to be smaller than $\hat{p}$ would require that the test statistic be larger than $\hat{S}$, so $Pr(p < \hat{p}) = Pr(S > \hat{S})$, which we just said is equal to $\hat{p}$. So $Pr(p < \hat{p}) = \hat{p}$, which is the definition of a uniform distribution; The probability of a value falling into any interval is simply the length of that interval.
+  * If the p-value is the error rate, the error rate must be Uniformly distributed (because the p-value is). This would mean that the "probability of making an error" is itself a random variable that changes every time we run the experiment. Say we run 100 more tests where the Null is true. On one day, we get p=0.01. we claim our error rate is 1%. On another day, we get p=0.04. we claim our error rate is 4%. However, the definition of a Type I error rate is the total probability of the rejection region. If we claim the error rate in this case is .01, then we are claiming that $ \int_{0}^{\alpha} 1 \, dp = .01$. But we already rejected based on the 0.05 rule! To claim a 1% error rate, we would have had to ignore any result between 0.01 and 0.05. Since we are not doing that, we cannot claim the long run error rate is .01. To do so would be like rolling a die, getting a 1, and claiming "The probability of rolling a 1 is 100% because it just happened. To have a long-run error rate of 1%, we would have had to commit to $ \alpha = 0.01$ before we ran the test. We cannot use a single realization (p) to redefine the probability of the procedure ($\alpha$).
+
+  * We want to believe that a lower p value makes our results more true. We want to say, "It is harder to get a 0.01 by chance than it is to get a 0.05." But the reality is; if the Null **is** true and therefore we have a uniform distribution for our p value, we are just as likely to get a p-value in the "barely significant" range (0.04 to 0.05) as we are in the "highly significant" range (0.00 to 0.01). The probability of falling into the interval [0,0.01] is exactly the same as falling into the interval [0.039,0.049]. They are both just intervals on a flat line. p-value is not the magnitude of the evidence.
+
+  * An error rate is a property of a procedure, not a single data point. If the procedure is "Reject if p<0.05," then the error rate is 5% regardless of whether the specific p was 0.049 or 0.0001. By using p as the error rate, we are effectively pretending that we would have only rejected the null if we got exactly 0.01 or less. We are "cherry-picking" the significance level after seeing the data. 
+
+  * If the p-value were always uniform, the test would be useless. The p-value is not uniform under the alternative hypothesis (H1​) because the distribution you use to calculate the p-value (the Null Distribution) is no longer the distribution the data is actually coming from. This is exactly why we use p-values to "reject" the null. We are looking for evidence that the p-values are not coming from a uniform distribution. If we see a p-value of 0.001, we think: "If the null were true, this was just as likely as 0.50. But if the alternative is true, this 0.001 is much more likely than 0.50."
+
 
 ## General Notes
 
