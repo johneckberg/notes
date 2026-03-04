@@ -21,7 +21,7 @@ Every single value in that 0 to 0.05 range is a "false alarm."
 * **The p value does not quantify the probability that the null is false, rather is quantifies the probability that our data would be observed GIVEN the conditions specified by the null**
 * **You can't use the specific location of a mouse inside a trap to redefine how often the trap snaps.**
 
-* **Under any null hypothesis, the p-values are uniformly distributed: all p-values between 0 and 1 are equally likely.** When you take any continuous random variable and plug it into its own Cumulative Distribution Function (CDF), the resulting values are always uniformly distributed between 0 and 1 (this follows from the Probability integral transform). Since the p-value calculation is essentially just applying the CDF to our data, the p-value must be uniform if the data actually follows that distribution (i.e., if the Null is true).
+* **Under any null hypothesis, the p-values are uniformly distributed: all p-values between 0 and 1 are equally likely.** When you take any continuous random variable and plug it into its own Cumulative Distribution Function (CDF), the resulting values are always uniformly distributed between 0 and 1 (this follows from the Probability integral transform). Since the p-value calculation is essentially just applying the test statistic's CDF to the test statistic, the p-value must be uniform if the data actually follows that distribution (i.e., if the Null is true).
 
 * So let's present an argument for this via contradiction:
   * Consider the following situation:
